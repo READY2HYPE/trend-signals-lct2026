@@ -1,0 +1,17 @@
+# данные
+data/
+*.parquet
+*.jsonl
+*.csv.gz
+*.db
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# среда
+.env
+.idea/
+.vscode/
