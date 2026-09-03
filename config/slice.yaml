@@ -1,0 +1,28 @@
+# Описание среза данных. Этот файл определяет, какие данные считаются «нашими».
+# Менять только вместе с пересчётом манифеста.
+
+slice_id: ai-2010-2025
+
+direction:
+  name: искусственный интеллект
+  # Идентификаторы тем OpenAlex; уточняются на шаге подбора фильтра
+  openalex_topic_ids: []
+
+years:
+  start: 2010
+  end: 2025
+
+filters:
+  types: [article, preprint]
+  require_abstract: true
+
+fetch:
+  per_page: 200
+  max_retries: 5
+  backoff_seconds: 2
+
+paths:
+  raw: data/raw
+  aggregates: data/aggregates
+  sample: data/sample
+  manifest: data/manifest.json

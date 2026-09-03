@@ -1,0 +1,34 @@
+[project]
+name = "trend-signals"
+version = "0.1.0"
+description = "Поиск зарождающихся технологических трендов"
+requires-python = ">=3.12,<3.13"
+
+dependencies = [
+    "httpx>=0.27",
+    "tenacity>=9.0",
+    "pandas>=2.2",
+    "pyarrow>=17",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+# Ставится отдельно и весит гигабайты: uv sync --extra ml
+ml = [
+    "sentence-transformers>=3.0",
+    "umap-learn>=0.5",
+    "hdbscan>=0.8",
+    "scikit-learn>=1.5",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100

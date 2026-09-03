@@ -1,9 +1,15 @@
-# данные
-data/
-*.parquet
+# данные: выгрузка не коммитится, но подвыборка, агрегаты и манифест — да
+data/*
+!data/sample/
+!data/aggregates/
+!data/manifest.json
 *.jsonl
 *.csv.gz
 *.db
+
+# окружение
+.env
+uv.lock.bak
 
 # python
 .venv/
