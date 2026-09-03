@@ -991,15 +991,17 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
-dev = [
-    { name = "pytest" },
-    { name = "ruff" },
-]
 ml = [
     { name = "hdbscan" },
     { name = "scikit-learn" },
     { name = "sentence-transformers" },
     { name = "umap-learn" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+    { name = "ruff" },
 ]
 
 [package.metadata]
@@ -1008,17 +1010,21 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.27" },
     { name = "pandas", specifier = ">=2.2" },
     { name = "pyarrow", specifier = ">=17" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "python-dotenv", specifier = ">=1.0" },
     { name = "pyyaml", specifier = ">=6.0" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6" },
     { name = "scikit-learn", marker = "extra == 'ml'", specifier = ">=1.5" },
     { name = "sentence-transformers", marker = "extra == 'ml'", specifier = ">=3.0" },
     { name = "tenacity", specifier = ">=9.0" },
     { name = "tqdm", specifier = ">=4.66" },
     { name = "umap-learn", marker = "extra == 'ml'", specifier = ">=0.5" },
 ]
-provides-extras = ["ml", "dev"]
+provides-extras = ["ml"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pytest", specifier = ">=8.0" },
+    { name = "ruff", specifier = ">=0.6" },
+]
 
 [[package]]
 name = "triton"

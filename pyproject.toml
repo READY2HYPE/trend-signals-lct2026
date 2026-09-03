@@ -22,6 +22,9 @@ ml = [
     "hdbscan>=0.8",
     "scikit-learn>=1.5",
 ]
+
+# Ставится вместе с окружением: uv sync подтягивает группу dev сам
+[dependency-groups]
 dev = [
     "pytest>=8.0",
     "ruff>=0.6",
