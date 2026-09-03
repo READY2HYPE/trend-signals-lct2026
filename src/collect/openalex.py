@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 
 import httpx
@@ -23,16 +24,39 @@ from src.collect import config, schema
 
 API = "https://api.openalex.org/works"
 PART_ROWS = 25_000        # столько строк в одном файле part-XXX.parquet
+MAX_WAIT = 45 * 60        # дольше этого ждать сброса лимита не имеет смысла
 RETRYABLE = (httpx.TransportError, httpx.HTTPStatusError)
+
+
+class BudgetExhausted(RuntimeError):
+    """Дневной лимит запросов исчерпан, сброс слишком далеко."""
 
 
 class Client:
     def __init__(self, cfg: config.Slice) -> None:
         self.cfg = cfg
+        self.remaining: int | None = None      # запросов до конца суток, из заголовка
         self.http = httpx.Client(
             timeout=90.0,
             headers={"User-Agent": f"trend-signals/0.1 (mailto:{cfg.mailto})"},
         )
+
+    def _note_limits(self, r: httpx.Response) -> None:
+        left = r.headers.get("x-ratelimit-remaining")
+        if left is not None and left.isdigit():
+            self.remaining = int(left)
+
+    def _wait_for_reset(self, r: httpx.Response) -> None:
+        """Лимит у OpenAlex дневной и сбрасывается в полночь UTC. Если до сброса
+        недалеко — ждём, иначе выходим: сутки в фоне висеть смысла нет."""
+        pause = int(r.headers.get("retry-after") or 0)
+        if pause <= 0 or pause > MAX_WAIT:
+            raise BudgetExhausted(
+                f"дневной лимит запросов исчерпан, сброс через {pause // 60} мин"
+            )
+        print()
+        print(f"  лимит исчерпан, жду сброса {pause // 60} мин", flush=True)
+        time.sleep(pause + 5)
 
     def _page(self, params: dict) -> dict:
         @retry(
@@ -43,9 +67,15 @@ class Client:
         )
         def call() -> dict:
             r = self.http.get(API, params={**params, "mailto": self.cfg.mailto})
-            # 429 и 5xx считаем временными, 4xx остальные — ошибкой запроса
-            if r.status_code == 429 or r.status_code >= 500:
-                r.raise_for_status()
+            self._note_limits(r)
+            if r.status_code == 429:
+                self._wait_for_reset(r)          # ждём полночь UTC и пробуем ещё раз
+                r = self.http.get(API, params={**params, "mailto": self.cfg.mailto})
+                self._note_limits(r)
+                if r.status_code == 429:
+                    raise BudgetExhausted("лимит не сбросился после ожидания")
+            if r.status_code >= 500:
+                r.raise_for_status()             # временная ошибка, повторяем
             if r.status_code >= 400:
                 raise SystemExit(f"OpenAlex вернул {r.status_code}: {r.text[:300]}")
             return r.json()
@@ -106,15 +136,24 @@ def fetch_year(client: Client, year: int, limit: int | None = None) -> dict:
              "expected": expected, "done": done}, ensure_ascii=False))
 
     print(f"  {year}: ожидается {expected:,}", end="", flush=True)
-    for results, next_cursor in client.pages(filt, cursor):
-        buffer.extend(schema.to_row(w) for w in results)
-        if len(buffer) >= PART_ROWS:
-            flush(next_cursor, done=False)
-            print(f" .{rows_done:,}", end="", flush=True)
-        if limit and rows_done + len(buffer) >= limit:
-            break
-        if not next_cursor:
-            break
+    pending = cursor          # курсор, с которого продолжится несброшенный буфер
+    try:
+        for results, next_cursor in client.pages(filt, cursor):
+            buffer.extend(schema.to_row(w) for w in results)
+            pending = next_cursor
+            if len(buffer) >= PART_ROWS:
+                flush(next_cursor, done=False)
+                print(f" .{rows_done:,}", end="", flush=True)
+            if limit and rows_done + len(buffer) >= limit:
+                break
+            if not next_cursor:
+                break
+    except BaseException:
+        # Иначе при обрыве теряются все записи, набранные после прошлой записи
+        # на диск, — до 25 тысяч, и их приходится качать заново.
+        flush(pending, done=False)
+        print(f" -> сохранено {rows_done:,} до обрыва")
+        raise
     flush(None, done=not limit)
 
     if limit:                       # пробный запуск, полноту не проверяем
@@ -139,14 +178,24 @@ def main() -> None:
     years = [args.year] if args.year else list(cfg.years)
     print(f"срез {cfg.slice_id}: подобласти {cfg.subfield_ids}, годы {years[0]}-{years[-1]}")
 
-    total, bad = 0, []
+    total, bad, stopped = 0, [], None
     for year in years:
-        res = fetch_year(client, year, args.limit)
+        try:
+            res = fetch_year(client, year, args.limit)
+        except BudgetExhausted as e:
+            stopped = f"{year}: {e}"
+            break
         total += res.get("rows", 0)
         if res.get("gap", 0) > 0.02:
             bad.append(year)
 
     print(f"\nвсего {total:,} записей в {cfg.raw / 'openalex'}")
+    if client.remaining is not None:
+        print(f"запросов до конца суток UTC осталось: {client.remaining}")
+    if stopped:
+        print(f"остановились на {stopped}", file=sys.stderr)
+        print("повторный запуск продолжит с сохранённого курсора", file=sys.stderr)
+        raise SystemExit(2)
     if bad:
         print(f"годы с расхождением больше 2%: {bad} — выгрузка неполная", file=sys.stderr)
         raise SystemExit(1)
