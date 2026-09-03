@@ -3,10 +3,14 @@
 
 slice_id: ai-2010-2025
 
+# ПРОБНЫЙ фильтр: выбран для замера объёма, командой не согласован.
+# Таксономия OpenAlex: domain > field > subfield > topic. Берём уровень subfield —
+# отдельных topic в ИИ около сотни, перечислять их вручную и поддерживать нечем.
 direction:
   name: искусственный интеллект
-  # Идентификаторы тем OpenAlex; уточняются на шаге подбора фильтра
-  openalex_topic_ids: []
+  openalex_subfield_ids: [1702]   # Artificial Intelligence
+  # 1707 Computer Vision — кандидат на расширение, +470 тыс. записей
+  openalex_subfield_ids_candidate: [1707]
 
 years:
   start: 2010
@@ -15,6 +19,9 @@ years:
 filters:
   types: [article, preprint]
   require_abstract: true
+  # Тематическая привязка у OpenAlex вероятностная: встречаются записи со score 0.05.
+  # Порог пробный, подбирается по глазам на выборке.
+  min_primary_topic_score: 0.5
 
 fetch:
   per_page: 200
