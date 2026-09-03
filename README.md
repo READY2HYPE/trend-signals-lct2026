@@ -31,11 +31,11 @@ copy .env.example .env
 В `.env` вписать почтовый адрес — он нужен для вежливого режима OpenAlex, без него API
 ограничивает скорость выгрузки.
 
-Запуск через `uv run`, активировать окружение вручную не требуется — проверка, что
-окружение собралось:
+Запуск через `uv run`, активировать окружение вручную не требуется:
 
 ```
 uv run python -V
+uv run pytest
 ```
 
 Библиотеки машинного обучения весят гигабайты и нужны не всем, поэтому ставятся отдельно:
@@ -60,6 +60,9 @@ scripts/  разовые проверки
 uv run python scripts/probe_slice.py        замер объёма и полноты полей
 uv run python -m src.collect.aggregates     ряды по годам для нормировки
 uv run python -m src.collect.openalex       выгрузка, продолжается после обрыва
+uv run python -m src.collect.sample         подвыборка для разработки
+uv run python -m src.collect.manifest       манифест; --check сверяет свою выгрузку
+uv run python -m src.collect.check          критерии приёмки этапа
 ```
 
 ## Документация
