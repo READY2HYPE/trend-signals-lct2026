@@ -12,11 +12,12 @@
 зависимости точных версий. Системный Python при этом не затрагивается.
 
 ```powershell
-winget install --id astral-sh.uv
+irm https://astral.sh/uv/install.ps1 | iex
 ```
 
-Если winget недоступен: `irm https://astral.sh/uv/install.ps1 | iex`
-На macOS и Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
+Ставится в домашнюю папку пользователя; если после установки команда `uv` не находится,
+открыть новое окно терминала. На macOS и Linux:
+`curl -LsSf https://astral.sh/uv/install.sh | sh`
 
 Дальше:
 
