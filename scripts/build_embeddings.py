@@ -34,6 +34,9 @@ def main() -> None:
     ap.add_argument("--model", default=MODEL_NAME)
     ap.add_argument("--batch-size", type=int, default=BATCH_SIZE)
     ap.add_argument("--chunk-size", type=int, default=CHUNK_SIZE)
+    ap.add_argument("--fp32", action="store_true",
+                     help="полная точность на видеокарте: втрое медленнее, "
+                          "нужно только чтобы сверить счёт")
     args = ap.parse_args()
 
     config.setup_console()
@@ -49,7 +52,8 @@ def main() -> None:
     print(f"источник: {source}")
     print(f"модель: {args.model}, пачка: {args.batch_size}, чанк: {args.chunk_size}")
     started = time.monotonic()
-    n = build_embeddings(source, out_dir, args.model, args.batch_size, args.chunk_size)
+    n = build_embeddings(source, out_dir, args.model, args.batch_size, args.chunk_size,
+                         half=False if args.fp32 else None)
     elapsed = time.monotonic() - started
     print(f"\nготово: {n:,} эмбеддингов -> {out_dir}, {elapsed / 60:.1f} мин")
 

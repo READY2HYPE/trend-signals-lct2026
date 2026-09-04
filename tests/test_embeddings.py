@@ -141,7 +141,7 @@ def test_build_embeddings_writes_chunked_parts_and_skips_on_resume(tmp_path, mon
     class FakeModel:
         tokenizer = FakeTokenizer()
 
-    def fake_load_model(model_name=None):
+    def fake_load_model(model_name=None, **kw):
         calls["load_model"] += 1
         return FakeModel()
 
@@ -188,7 +188,7 @@ def test_build_embeddings_resumes_only_missing_chunks(tmp_path, monkeypatch):
         calls["embed_batch"] += 1
         return np.zeros((len(texts), EMBEDDING_DIM), dtype="float32")
 
-    monkeypatch.setattr(embeddings_module, "load_model", lambda model_name=None: FakeModel())
+    monkeypatch.setattr(embeddings_module, "load_model", lambda model_name=None, **kw: FakeModel())
     monkeypatch.setattr(embeddings_module, "embed_batch", fake_embed_batch)
 
     n = build_embeddings(source, out_dir, chunk_size=2)
@@ -203,11 +203,12 @@ def test_module_imports_without_sentence_transformers():
     import src.core.embeddings  # noqa: F401
 
 
-def test_load_model_gives_actionable_error_without_ml_extra():
-    if "sentence_transformers" in sys.modules:
-        pytest.skip("sentence-transformers уже импортирован в этом процессе")
-
+def test_load_model_gives_actionable_error_without_ml_extra(monkeypatch):
+    # Импорт блокируется явно, а не проверкой «библиотеки нет в процессе»: после
+    # uv sync --extra ml она есть, и такая проверка молча пропускала бы тест —
+    # ровно там, где он и нужен. None в sys.modules заставляет импорт упасть.
     import src.core.embeddings as embeddings_module
 
+    monkeypatch.setitem(sys.modules, "sentence_transformers", None)
     with pytest.raises(RuntimeError, match="uv sync --extra ml"):
         embeddings_module.load_model()

@@ -31,7 +31,12 @@ import pyarrow.parquet as pq
 
 MODEL_NAME = "sentence-transformers/allenai-specter"
 EMBEDDING_DIM = 768
-BATCH_SIZE = 64
+
+# Замерено на RTX 2060 Super, 1024 текста подвыборки: 32 -> 348 текстов/с,
+# 64 -> 290, 96 -> 273, 256 -> 13. Крупная пачка здесь не ускоряет, а тормозит:
+# на 256 занято 5 ГБ из 8, и драйвер начинает вытеснять память карты в
+# оперативную. Значение подобрано измерением, менять его стоит тоже измерением.
+BATCH_SIZE = 32
 
 # Компромисс: крупные пачки эффективнее для GPU, но при обрыве (машина без присмотра
 # час-два) переделывать придётся не больше одной пачки, а не всё заново.
@@ -83,18 +88,41 @@ def iter_embeddable_rows(table: pa.Table) -> Iterator[dict]:
         yield {"id": row["id"], "title": row.get("title"), "abstract": abstract}
 
 
-def load_model(model_name: str = MODEL_NAME):
+def load_model(model_name: str = MODEL_NAME, *, half: bool | None = None):
     """Импорт sentence_transformers внутри функции, не на уровне модуля: модуль
     должен собираться и тестироваться даже без поставленного `ml`-экстра — падать
-    это должно только в момент реального запуска, с понятным сообщением."""
+    это должно только в момент реального запуска, с понятным сообщением.
+
+    На видеокарте модель переводится в половинную точность (half=None означает
+    «решить по наличию видеокарты»). Это втрое быстрее: 348 текстов/с против 103
+    на той же карте, полный корпус 47 минут вместо 158. Проверено, что счёт от
+    этого не портится: на 4096 векторах ни одного «не числа», косинус с полной
+    точностью не ниже 0,9995, а из десяти ближайших соседей совпадает в среднем
+    9,95 — то есть соседство, на котором держится кластеризация, сохраняется.
+    На процессоре половинная точность бесполезна (часть операций там считается
+    медленнее полной), поэтому включается только вместе с картой.
+    """
     try:
+        import torch
         from sentence_transformers import SentenceTransformer
     except ImportError as exc:
         raise RuntimeError(
             "sentence-transformers не установлен. Тяжёлые ML-зависимости ставятся "
             "отдельно: uv sync --extra ml"
         ) from exc
-    return SentenceTransformer(model_name)
+
+    model = SentenceTransformer(model_name)
+    on_gpu = torch.cuda.is_available()
+    if half is None:
+        half = on_gpu
+    if half:
+        model.half()
+
+    # Точность и устройство печатаются, а не подразумеваются: молчаливый откат
+    # на процессор выглядит как «просто медленно идёт» и стоит суток счёта.
+    print(f"устройство: {model.device}, точность: {'half' if half else 'full'}"
+          + ("" if on_gpu else " (видеокарта не найдена — считает процессор)"), flush=True)
+    return model
 
 
 def embed_batch(model, texts: list[str], batch_size: int = BATCH_SIZE) -> np.ndarray:
@@ -134,6 +162,7 @@ def build_embeddings(
     model_name: str = MODEL_NAME,
     batch_size: int = BATCH_SIZE,
     chunk_size: int = CHUNK_SIZE,
+    half: bool | None = None,
 ) -> int:
     """Читает работы из source (файл подвыборки или каталог data/raw/openalex/),
     эмбеддит записи на английском (или без языка) с непустой аннотацией, пишет
@@ -169,7 +198,7 @@ def build_embeddings(
             continue
 
         if model is None:  # модель грузится один раз, лениво — не нужна вообще, если всё уже посчитано
-            model = load_model(model_name)
+            model = load_model(model_name, half=half)
             sep_token = getattr(model.tokenizer, "sep_token", None) or "[SEP]"
 
         texts = [build_text(r["title"], r["abstract"], sep_token) for r in chunk]
