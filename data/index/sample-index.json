@@ -3,13 +3,13 @@
   "note": "Образец формы. Группы взяты по темам OpenAlex, а не нашей кластеризацией. Числа посчитаны по настоящему корпусу; мотивация, кейс-пример и проверка на прошлом заполняются ядром позже.",
   "index_version": "sample-2026-09-04",
   "slice_id": "ai-2010-2025",
-  "built_at": "2026-09-04T09:23:54+00:00",
+  "built_at": "2026-09-04T10:41:33+00:00",
   "direction": {
     "id": "ai",
     "name": "искусственный интеллект",
     "years": [
       2010,
-      2018
+      2025
     ]
   },
   "trends": [
@@ -57,15 +57,15 @@
           "cited_by": 2090
         },
         {
-          "title": "Ensemble Adversarial Training: Attacks and Defenses",
-          "url": "https://openalex.org/W2963744840",
-          "year": 2017,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 1861
+          "title": "Shortcut learning in deep neural networks",
+          "url": "https://doi.org/10.1038/s42256-020-00257-z",
+          "year": 2020,
+          "venue": "Nature Machine Intelligence",
+          "cited_by": 2040
         }
       ],
       "first_year": 2010,
-      "works_total": 924,
+      "works_total": 23745,
       "series": [
         {
           "year": 2010,
@@ -109,153 +109,66 @@
         },
         {
           "year": 2018,
-          "works": 124,
-          "per_10k": 49.6
+          "works": 1064,
+          "per_10k": 127.7
+        },
+        {
+          "year": 2019,
+          "works": 1684,
+          "per_10k": 179.2
+        },
+        {
+          "year": 2020,
+          "works": 2518,
+          "per_10k": 237.1
+        },
+        {
+          "year": 2021,
+          "works": 3008,
+          "per_10k": 273.8
+        },
+        {
+          "year": 2022,
+          "works": 2910,
+          "per_10k": 272.4
+        },
+        {
+          "year": 2023,
+          "works": 3474,
+          "per_10k": 277.9
+        },
+        {
+          "year": 2024,
+          "works": 2942,
+          "per_10k": 202.6
+        },
+        {
+          "year": 2025,
+          "works": 5345,
+          "per_10k": 294.1
         }
       ],
       "features": {
-        "normalized_growth": 7.96,
-        "organizations": 412,
-        "countries": 38
+        "normalized_growth": 16.83,
+        "organizations": 4301,
+        "countries": 125
       },
       "score": 1.0,
       "top_organizations": [
+        "Tsinghua University",
         "Google (United States)",
-        "Stanford University",
-        "University of California, Berkeley",
-        "Pennsylvania State University",
-        "Carnegie Mellon University"
+        "Nanyang Technological University",
+        "Chinese Academy of Sciences",
+        "Zhejiang University"
       ],
       "top_countries": [
-        "US",
         "CN",
+        "US",
         "GB",
-        "DE",
-        "FR"
+        "FR",
+        "AU"
       ],
       "rank": 1
-    },
-    {
-      "id": "T11273",
-      "title": "Advanced Graph Neural Networks",
-      "summary": "Группа работ по теме «Advanced Graph Neural Networks».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Graph Attention Networks",
-        "url": "https://openalex.org/W4297733535",
-        "year": 2017,
-        "venue": "arXiv (Cornell University)",
-        "cited_by": 8400,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "Semi-Supervised Classification with Graph Convolutional Networks",
-          "url": "https://doi.org/10.48550/arxiv.1609.02907",
-          "year": 2016,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 8058
-        },
-        {
-          "title": "Translating Embeddings for Modeling Multi-relational Data",
-          "url": "https://openalex.org/W2127795553",
-          "year": 2013,
-          "venue": null,
-          "cited_by": 5188
-        },
-        {
-          "title": "Spectral Networks and Locally Connected Networks on Graphs",
-          "url": "https://doi.org/10.48550/arxiv.1312.6203",
-          "year": 2013,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 2726
-        },
-        {
-          "title": "Knowledge Graph Embedding: A Survey of Approaches and Applications",
-          "url": "https://doi.org/10.1109/tkde.2017.2754499",
-          "year": 2017,
-          "venue": "IEEE Transactions on Knowledge and Data Engineering",
-          "cited_by": 2703
-        },
-        {
-          "title": "A Comprehensive Survey of Graph Embedding: Problems, Techniques, and Applications",
-          "url": "https://doi.org/10.1109/tkde.2018.2807452",
-          "year": 2018,
-          "venue": "IEEE Transactions on Knowledge and Data Engineering",
-          "cited_by": 2076
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 970,
-      "series": [
-        {
-          "year": 2010,
-          "works": 26,
-          "per_10k": 4.0
-        },
-        {
-          "year": 2011,
-          "works": 29,
-          "per_10k": 4.4
-        },
-        {
-          "year": 2012,
-          "works": 47,
-          "per_10k": 6.8
-        },
-        {
-          "year": 2013,
-          "works": 65,
-          "per_10k": 9.0
-        },
-        {
-          "year": 2014,
-          "works": 85,
-          "per_10k": 12.1
-        },
-        {
-          "year": 2015,
-          "works": 113,
-          "per_10k": 16.3
-        },
-        {
-          "year": 2016,
-          "works": 191,
-          "per_10k": 27.0
-        },
-        {
-          "year": 2017,
-          "works": 274,
-          "per_10k": 36.4
-        },
-        {
-          "year": 2018,
-          "works": 140,
-          "per_10k": 56.0
-        }
-      ],
-      "features": {
-        "normalized_growth": 6.11,
-        "organizations": 565,
-        "countries": 49
-      },
-      "score": 1.0,
-      "top_organizations": [
-        "École Polytechnique Fédérale de Lausanne",
-        "Carnegie Mellon University",
-        "University of Southern California",
-        "Tsinghua University",
-        "Chinese Academy of Sciences"
-      ],
-      "top_countries": [
-        "US",
-        "CN",
-        "FR",
-        "IT",
-        "GB"
-      ],
-      "rank": 2
     },
     {
       "id": "T12026",
@@ -264,14 +177,35 @@
       "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
       "motivation_is_placeholder": true,
       "case_example": {
-        "title": "A Unified Approach to Interpreting Model Predictions",
-        "url": "https://doi.org/10.48550/arxiv.1705.07874",
-        "year": 2017,
-        "venue": "arXiv (Cornell University)",
-        "cited_by": 7625,
+        "title": "From local explanations to global understanding with explainable AI for trees",
+        "url": "https://doi.org/10.1038/s42256-019-0138-9",
+        "year": 2020,
+        "venue": "Nature Machine Intelligence",
+        "cited_by": 9936,
         "is_placeholder": true
       },
       "sources": [
+        {
+          "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+          "url": "https://doi.org/10.1038/s42256-019-0048-x",
+          "year": 2019,
+          "venue": "Nature Machine Intelligence",
+          "cited_by": 9924
+        },
+        {
+          "title": "Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI",
+          "url": "https://doi.org/10.1016/j.inffus.2019.12.012",
+          "year": 2019,
+          "venue": "Information Fusion",
+          "cited_by": 9796
+        },
+        {
+          "title": "A Unified Approach to Interpreting Model Predictions",
+          "url": "https://doi.org/10.48550/arxiv.1705.07874",
+          "year": 2017,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 7625
+        },
         {
           "title": "Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (XAI)",
           "url": "https://doi.org/10.1109/access.2018.2870052",
@@ -280,36 +214,15 @@
           "cited_by": 6166
         },
         {
-          "title": "Towards A Rigorous Science of Interpretable Machine Learning",
-          "url": "https://doi.org/10.48550/arxiv.1702.08608",
-          "year": 2017,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 3190
-        },
-        {
-          "title": "Methods for interpreting and understanding deep neural networks",
-          "url": "https://doi.org/10.1016/j.dsp.2017.10.011",
-          "year": 2017,
-          "venue": "Digital Signal Processing",
-          "cited_by": 2763
-        },
-        {
-          "title": "Axiomatic Attribution for Deep Networks",
-          "url": "https://doi.org/10.48550/arxiv.1703.01365",
-          "year": 2017,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 2650
-        },
-        {
-          "title": "Learning Important Features Through Propagating Activation Differences",
-          "url": "https://doi.org/10.48550/arxiv.1704.02685",
-          "year": 2017,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 2379
+          "title": "A survey of methods for explaining black box models",
+          "url": "https://doi.org/10.1145/3236009",
+          "year": 2019,
+          "venue": "ISTI Open Portal",
+          "cited_by": 4992
         }
       ],
       "first_year": 2010,
-      "works_total": 509,
+      "works_total": 14226,
       "series": [
         {
           "year": 2010,
@@ -353,31 +266,1322 @@
         },
         {
           "year": 2018,
-          "works": 63,
-          "per_10k": 25.2
+          "works": 340,
+          "per_10k": 40.8
+        },
+        {
+          "year": 2019,
+          "works": 631,
+          "per_10k": 67.1
+        },
+        {
+          "year": 2020,
+          "works": 1086,
+          "per_10k": 102.2
+        },
+        {
+          "year": 2021,
+          "works": 1414,
+          "per_10k": 128.7
+        },
+        {
+          "year": 2022,
+          "works": 1520,
+          "per_10k": 142.3
+        },
+        {
+          "year": 2023,
+          "works": 2013,
+          "per_10k": 161.1
+        },
+        {
+          "year": 2024,
+          "works": 2026,
+          "per_10k": 139.5
+        },
+        {
+          "year": 2025,
+          "works": 4750,
+          "per_10k": 261.4
         }
       ],
       "features": {
-        "normalized_growth": 5.29,
-        "organizations": 303,
-        "countries": 40
+        "normalized_growth": 16.77,
+        "organizations": 4838,
+        "countries": 126
       },
       "score": 1.0,
       "top_organizations": [
-        "Google (United States)",
-        "University of California, Berkeley",
+        "Carnegie Mellon University",
+        "Centre National de la Recherche Scientifique",
+        "University College London",
         "Massachusetts Institute of Technology",
-        "Technische Universität Berlin",
-        "Korea University"
+        "Google (United States)"
       ],
       "top_countries": [
         "US",
         "DE",
         "GB",
+        "CN",
+        "FR"
+      ],
+      "rank": 2
+    },
+    {
+      "id": "T11273",
+      "title": "Advanced Graph Neural Networks",
+      "summary": "Группа работ по теме «Advanced Graph Neural Networks».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "A Comprehensive Survey on Graph Neural Networks",
+        "url": "https://doi.org/10.1109/tnnls.2020.2978386",
+        "year": 2020,
+        "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+        "cited_by": 9855,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Graph Attention Networks",
+          "url": "https://openalex.org/W4297733535",
+          "year": 2017,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 8400
+        },
+        {
+          "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+          "url": "https://doi.org/10.48550/arxiv.1609.02907",
+          "year": 2016,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 8058
+        },
+        {
+          "title": "Graph neural networks: A review of methods and applications",
+          "url": "https://doi.org/10.1016/j.aiopen.2021.01.001",
+          "year": 2020,
+          "venue": "AI Open",
+          "cited_by": 5808
+        },
+        {
+          "title": "Translating Embeddings for Modeling Multi-relational Data",
+          "url": "https://openalex.org/W2127795553",
+          "year": 2013,
+          "venue": null,
+          "cited_by": 5188
+        },
+        {
+          "title": "Formal Semantics for Kolmogorov-Arnold Network Representations of Operational Games",
+          "url": "https://doi.org/10.5281/zenodo.15206559",
+          "year": 2025,
+          "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+          "cited_by": 3533
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 17280,
+      "series": [
+        {
+          "year": 2010,
+          "works": 26,
+          "per_10k": 4.0
+        },
+        {
+          "year": 2011,
+          "works": 29,
+          "per_10k": 4.4
+        },
+        {
+          "year": 2012,
+          "works": 47,
+          "per_10k": 6.8
+        },
+        {
+          "year": 2013,
+          "works": 65,
+          "per_10k": 9.0
+        },
+        {
+          "year": 2014,
+          "works": 85,
+          "per_10k": 12.1
+        },
+        {
+          "year": 2015,
+          "works": 113,
+          "per_10k": 16.3
+        },
+        {
+          "year": 2016,
+          "works": 191,
+          "per_10k": 27.0
+        },
+        {
+          "year": 2017,
+          "works": 274,
+          "per_10k": 36.4
+        },
+        {
+          "year": 2018,
+          "works": 531,
+          "per_10k": 63.7
+        },
+        {
+          "year": 2019,
+          "works": 991,
+          "per_10k": 105.4
+        },
+        {
+          "year": 2020,
+          "works": 1519,
+          "per_10k": 143.0
+        },
+        {
+          "year": 2021,
+          "works": 2027,
+          "per_10k": 184.5
+        },
+        {
+          "year": 2022,
+          "works": 2257,
+          "per_10k": 211.3
+        },
+        {
+          "year": 2023,
+          "works": 2684,
+          "per_10k": 214.7
+        },
+        {
+          "year": 2024,
+          "works": 2445,
+          "per_10k": 168.4
+        },
+        {
+          "year": 2025,
+          "works": 3996,
+          "per_10k": 219.9
+        }
+      ],
+      "features": {
+        "normalized_growth": 11.3,
+        "organizations": 3598,
+        "countries": 111
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Chinese Academy of Sciences",
+        "Tsinghua University",
+        "National University of Defense Technology",
+        "University of Chinese Academy of Sciences",
+        "Beijing University of Posts and Telecommunications"
+      ],
+      "top_countries": [
+        "CN",
+        "US",
+        "AU",
+        "FR",
+        "GB"
+      ],
+      "rank": 3
+    },
+    {
+      "id": "T12128",
+      "title": "AI in Service Interactions",
+      "summary": "Группа работ по теме «AI in Service Interactions».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "Artificial Intelligence in Education: A Review",
+        "url": "https://doi.org/10.1109/access.2020.2988510",
+        "year": 2020,
+        "venue": "IEEE Access",
+        "cited_by": 3882,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Artificial Intelligence in Service",
+          "url": "https://doi.org/10.1177/1094670517752459",
+          "year": 2018,
+          "venue": "Journal of Service Research",
+          "cited_by": 3474
+        },
+        {
+          "title": "How artificial intelligence will change the future of marketing",
+          "url": "https://doi.org/10.1007/s11747-019-00696-0",
+          "year": 2019,
+          "venue": "Journal of the Academy of Marketing Science",
+          "cited_by": 2670
+        },
+        {
+          "title": "Brave new world: service robots in the frontline",
+          "url": "https://doi.org/10.1108/josm-04-2018-0119",
+          "year": 2018,
+          "venue": "Journal of service management",
+          "cited_by": 2229
+        },
+        {
+          "title": "A strategic framework for artificial intelligence in marketing",
+          "url": "https://doi.org/10.1007/s11747-020-00749-9",
+          "year": 2020,
+          "venue": "Journal of the Academy of Marketing Science",
+          "cited_by": 1841
+        },
+        {
+          "title": "Generative AI",
+          "url": "https://doi.org/10.1007/s12599-023-00834-7",
+          "year": 2023,
+          "venue": "Business & Information Systems Engineering",
+          "cited_by": 1329
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 17359,
+      "series": [
+        {
+          "year": 2010,
+          "works": 85,
+          "per_10k": 13.1
+        },
+        {
+          "year": 2011,
+          "works": 76,
+          "per_10k": 11.5
+        },
+        {
+          "year": 2012,
+          "works": 96,
+          "per_10k": 13.9
+        },
+        {
+          "year": 2013,
+          "works": 85,
+          "per_10k": 11.8
+        },
+        {
+          "year": 2014,
+          "works": 101,
+          "per_10k": 14.4
+        },
+        {
+          "year": 2015,
+          "works": 77,
+          "per_10k": 11.1
+        },
+        {
+          "year": 2016,
+          "works": 136,
+          "per_10k": 19.2
+        },
+        {
+          "year": 2017,
+          "works": 194,
+          "per_10k": 25.8
+        },
+        {
+          "year": 2018,
+          "works": 370,
+          "per_10k": 44.4
+        },
+        {
+          "year": 2019,
+          "works": 537,
+          "per_10k": 57.1
+        },
+        {
+          "year": 2020,
+          "works": 809,
+          "per_10k": 76.2
+        },
+        {
+          "year": 2021,
+          "works": 922,
+          "per_10k": 83.9
+        },
+        {
+          "year": 2022,
+          "works": 1175,
+          "per_10k": 110.0
+        },
+        {
+          "year": 2023,
+          "works": 1864,
+          "per_10k": 149.1
+        },
+        {
+          "year": 2024,
+          "works": 3394,
+          "per_10k": 233.7
+        },
+        {
+          "year": 2025,
+          "works": 7438,
+          "per_10k": 409.3
+        }
+      ],
+      "features": {
+        "normalized_growth": 9.63,
+        "organizations": 6924,
+        "countries": 152
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Hong Kong Polytechnic University",
+        "City University of Macau",
+        "University of Florida",
+        "Universiti Teknologi MARA",
+        "University of Macau"
+      ],
+      "top_countries": [
+        "US",
+        "CN",
+        "IN",
+        "GB",
+        "ID"
+      ],
+      "rank": 4
+    },
+    {
+      "id": "T11307",
+      "title": "Domain Adaptation and Few-Shot Learning",
+      "summary": "Группа работ по теме «Domain Adaptation and Few-Shot Learning».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+        "url": "https://doi.org/10.57702/o9raffed",
+        "year": 2024,
+        "venue": "arXiv (Cornell University)",
+        "cited_by": 15663,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning",
+          "url": "https://doi.org/10.1609/aaai.v31i1.11231",
+          "year": 2017,
+          "venue": "AAAI Publications (The Association for the Advancement of Artificial Intelligence (AAAI))",
+          "cited_by": 12734
+        },
+        {
+          "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+          "url": "https://doi.org/10.48550/arxiv.2002.05709",
+          "year": 2020,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 7341
+        },
+        {
+          "title": "A Comprehensive Survey on Transfer Learning",
+          "url": "https://doi.org/10.1109/jproc.2020.3004555",
+          "year": 2020,
+          "venue": "Proceedings of the IEEE",
+          "cited_by": 6441
+        },
+        {
+          "title": "A survey of transfer learning",
+          "url": "https://doi.org/10.1186/s40537-016-0043-6",
+          "year": 2016,
+          "venue": "Journal Of Big Data",
+          "cited_by": 6290
+        },
+        {
+          "title": "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks",
+          "url": "https://doi.org/10.48550/arxiv.1703.03400",
+          "year": 2017,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 5794
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 21502,
+      "series": [
+        {
+          "year": 2010,
+          "works": 54,
+          "per_10k": 8.3
+        },
+        {
+          "year": 2011,
+          "works": 66,
+          "per_10k": 10.0
+        },
+        {
+          "year": 2012,
+          "works": 99,
+          "per_10k": 14.3
+        },
+        {
+          "year": 2013,
+          "works": 129,
+          "per_10k": 17.9
+        },
+        {
+          "year": 2014,
+          "works": 151,
+          "per_10k": 21.6
+        },
+        {
+          "year": 2015,
+          "works": 217,
+          "per_10k": 31.2
+        },
+        {
+          "year": 2016,
+          "works": 333,
+          "per_10k": 47.1
+        },
+        {
+          "year": 2017,
+          "works": 511,
+          "per_10k": 67.9
+        },
+        {
+          "year": 2018,
+          "works": 836,
+          "per_10k": 100.3
+        },
+        {
+          "year": 2019,
+          "works": 1330,
+          "per_10k": 141.5
+        },
+        {
+          "year": 2020,
+          "works": 2253,
+          "per_10k": 212.1
+        },
+        {
+          "year": 2021,
+          "works": 3126,
+          "per_10k": 284.5
+        },
+        {
+          "year": 2022,
+          "works": 3233,
+          "per_10k": 302.6
+        },
+        {
+          "year": 2023,
+          "works": 3761,
+          "per_10k": 300.9
+        },
+        {
+          "year": 2024,
+          "works": 2261,
+          "per_10k": 155.7
+        },
+        {
+          "year": 2025,
+          "works": 3142,
+          "per_10k": 172.9
+        }
+      ],
+      "features": {
+        "normalized_growth": 7.65,
+        "organizations": 3638,
+        "countries": 104
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Chinese Academy of Sciences",
+        "University of Chinese Academy of Sciences",
+        "University of Electronic Science and Technology of China",
+        "Google (United States)",
+        "Tsinghua University"
+      ],
+      "top_countries": [
+        "CN",
+        "US",
+        "GB",
         "FR",
         "AU"
       ],
-      "rank": 3
+      "rank": 5
+    },
+    {
+      "id": "T13702",
+      "title": "Machine Learning in Healthcare",
+      "summary": "Группа работ по теме «Machine Learning in Healthcare».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "A guide to deep learning in healthcare",
+        "url": "https://doi.org/10.1038/s41591-018-0316-z",
+        "year": 2018,
+        "venue": "Nature Medicine",
+        "cited_by": 5126,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Machine Learning in Medicine",
+          "url": "https://doi.org/10.1056/nejmra1814259",
+          "year": 2019,
+          "venue": "New England Journal of Medicine",
+          "cited_by": 4382
+        },
+        {
+          "title": "Machine Learning in Medicine",
+          "url": "https://doi.org/10.1161/circulationaha.115.001593",
+          "year": 2015,
+          "venue": "Circulation",
+          "cited_by": 3534
+        },
+        {
+          "title": "Deep learning for healthcare: review, opportunities and challenges",
+          "url": "https://doi.org/10.1093/bib/bbx044",
+          "year": 2017,
+          "venue": "Briefings in Bioinformatics",
+          "cited_by": 3115
+        },
+        {
+          "title": "The future of digital health with federated learning",
+          "url": "https://doi.org/10.1038/s41746-020-00323-1",
+          "year": 2020,
+          "venue": "npj Digital Medicine",
+          "cited_by": 2933
+        },
+        {
+          "title": "Scalable and accurate deep learning with electronic health records",
+          "url": "https://doi.org/10.1038/s41746-018-0029-1",
+          "year": 2018,
+          "venue": "npj Digital Medicine",
+          "cited_by": 2574
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 14518,
+      "series": [
+        {
+          "year": 2010,
+          "works": 81,
+          "per_10k": 12.4
+        },
+        {
+          "year": 2011,
+          "works": 113,
+          "per_10k": 17.2
+        },
+        {
+          "year": 2012,
+          "works": 157,
+          "per_10k": 22.8
+        },
+        {
+          "year": 2013,
+          "works": 174,
+          "per_10k": 24.1
+        },
+        {
+          "year": 2014,
+          "works": 219,
+          "per_10k": 31.3
+        },
+        {
+          "year": 2015,
+          "works": 256,
+          "per_10k": 36.8
+        },
+        {
+          "year": 2016,
+          "works": 349,
+          "per_10k": 49.3
+        },
+        {
+          "year": 2017,
+          "works": 390,
+          "per_10k": 51.8
+        },
+        {
+          "year": 2018,
+          "works": 637,
+          "per_10k": 76.4
+        },
+        {
+          "year": 2019,
+          "works": 870,
+          "per_10k": 92.6
+        },
+        {
+          "year": 2020,
+          "works": 1162,
+          "per_10k": 109.4
+        },
+        {
+          "year": 2021,
+          "works": 1270,
+          "per_10k": 115.6
+        },
+        {
+          "year": 2022,
+          "works": 1249,
+          "per_10k": 116.9
+        },
+        {
+          "year": 2023,
+          "works": 1612,
+          "per_10k": 129.0
+        },
+        {
+          "year": 2024,
+          "works": 2301,
+          "per_10k": 158.5
+        },
+        {
+          "year": 2025,
+          "works": 3678,
+          "per_10k": 202.4
+        }
+      ],
+      "features": {
+        "normalized_growth": 4.07,
+        "organizations": 7596,
+        "countries": 146
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Harvard University",
+        "Stanford University",
+        "University of Oxford",
+        "Massachusetts General Hospital",
+        "Massachusetts Institute of Technology"
+      ],
+      "top_countries": [
+        "US",
+        "CN",
+        "GB",
+        "DE",
+        "FR"
+      ],
+      "rank": 6
+    },
+    {
+      "id": "T10028",
+      "title": "Topic Modeling",
+      "summary": "Группа работ по теме «Topic Modeling».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "AI-Assisted Pipeline for Dynamic Generation of Trustworthy Health Supplement Content at Scale",
+        "url": "https://doi.org/10.4230/lipics.cosit.2022.18",
+        "year": 2018,
+        "venue": "DROPS (Schloss Dagstuhl – Leibniz Center for Informatics)",
+        "cited_by": 46036,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Efficient Estimation of Word Representations in Vector Space",
+          "url": "https://doi.org/10.48550/arxiv.1301.3781",
+          "year": 2013,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 18186
+        },
+        {
+          "title": "HISTORIAE, History of Socio-Cultural Transformation as Linguistic Data Science. A Humanities Use Case",
+          "url": "https://doi.org/10.4230/lipics.cp.2025.31",
+          "year": 2019,
+          "venue": "DROPS (Schloss Dagstuhl – Leibniz Center for Informatics)",
+          "cited_by": 17489
+        },
+        {
+          "title": "Aion Framework: Dimensional Emergence of AI Consciousness, Observer-Induced Collapse, and Cosmological Portal Dynamics",
+          "url": "https://doi.org/10.4230/lipics.giscience.2023.43",
+          "year": 2023,
+          "venue": "DROPS (Schloss Dagstuhl – Leibniz Center for Informatics)",
+          "cited_by": 14346
+        },
+        {
+          "title": "Efficient Estimation of Word Representations in Vector Space",
+          "url": "https://openalex.org/W2950577311",
+          "year": 2013,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 11714
+        },
+        {
+          "title": "Enriching Word Vectors with Subword Information",
+          "url": "https://doi.org/10.1162/tacl_a_00051",
+          "year": 2017,
+          "venue": "Transactions of the Association for Computational Linguistics",
+          "cited_by": 9900
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 58873,
+      "series": [
+        {
+          "year": 2010,
+          "works": 601,
+          "per_10k": 92.3
+        },
+        {
+          "year": 2011,
+          "works": 624,
+          "per_10k": 94.8
+        },
+        {
+          "year": 2012,
+          "works": 776,
+          "per_10k": 112.5
+        },
+        {
+          "year": 2013,
+          "works": 850,
+          "per_10k": 117.6
+        },
+        {
+          "year": 2014,
+          "works": 763,
+          "per_10k": 109.0
+        },
+        {
+          "year": 2015,
+          "works": 959,
+          "per_10k": 137.9
+        },
+        {
+          "year": 2016,
+          "works": 1356,
+          "per_10k": 191.7
+        },
+        {
+          "year": 2017,
+          "works": 1685,
+          "per_10k": 224.0
+        },
+        {
+          "year": 2018,
+          "works": 2584,
+          "per_10k": 310.1
+        },
+        {
+          "year": 2019,
+          "works": 3791,
+          "per_10k": 403.4
+        },
+        {
+          "year": 2020,
+          "works": 5129,
+          "per_10k": 482.9
+        },
+        {
+          "year": 2021,
+          "works": 5990,
+          "per_10k": 545.2
+        },
+        {
+          "year": 2022,
+          "works": 5479,
+          "per_10k": 512.9
+        },
+        {
+          "year": 2023,
+          "works": 9267,
+          "per_10k": 741.4
+        },
+        {
+          "year": 2024,
+          "works": 8425,
+          "per_10k": 580.2
+        },
+        {
+          "year": 2025,
+          "works": 10594,
+          "per_10k": 583.0
+        }
+      ],
+      "features": {
+        "normalized_growth": 3.85,
+        "organizations": 8232,
+        "countries": 146
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Tsinghua University",
+        "Chinese Academy of Sciences",
+        "Carnegie Mellon University",
+        "Google (United States)",
+        "Harbin Institute of Technology"
+      ],
+      "top_countries": [
+        "CN",
+        "US",
+        "IN",
+        "GB",
+        "DE"
+      ],
+      "rank": 7
+    },
+    {
+      "id": "T12611",
+      "title": "Neural Networks and Reservoir Computing",
+      "summary": "Группа работ по теме «Neural Networks and Reservoir Computing».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "Topological photonics",
+        "url": "https://doi.org/10.1103/revmodphys.91.015006",
+        "year": 2019,
+        "venue": "Reviews of Modern Physics",
+        "cited_by": 3701,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Deep learning with coherent nanophotonic circuits",
+          "url": "https://doi.org/10.1038/nphoton.2017.93",
+          "year": 2017,
+          "venue": "Nature Photonics",
+          "cited_by": 3187
+        },
+        {
+          "title": "All-optical machine learning using diffractive deep neural networks",
+          "url": "https://doi.org/10.1126/science.aat8084",
+          "year": 2018,
+          "venue": "Science",
+          "cited_by": 2553
+        },
+        {
+          "title": "Recent advances in physical reservoir computing: A review",
+          "url": "https://doi.org/10.1016/j.neunet.2019.03.005",
+          "year": 2019,
+          "venue": "Neural Networks",
+          "cited_by": 2125
+        },
+        {
+          "title": "Information processing using a single dynamical node as complex system",
+          "url": "https://doi.org/10.1038/ncomms1476",
+          "year": 2011,
+          "venue": "Nature Communications",
+          "cited_by": 1720
+        },
+        {
+          "title": "Photonics for artificial intelligence and neuromorphic computing",
+          "url": "https://doi.org/10.1038/s41566-020-00754-y",
+          "year": 2021,
+          "venue": "Nature Photonics",
+          "cited_by": 1686
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 11774,
+      "series": [
+        {
+          "year": 2010,
+          "works": 114,
+          "per_10k": 17.5
+        },
+        {
+          "year": 2011,
+          "works": 135,
+          "per_10k": 20.5
+        },
+        {
+          "year": 2012,
+          "works": 160,
+          "per_10k": 23.2
+        },
+        {
+          "year": 2013,
+          "works": 170,
+          "per_10k": 23.5
+        },
+        {
+          "year": 2014,
+          "works": 192,
+          "per_10k": 27.4
+        },
+        {
+          "year": 2015,
+          "works": 244,
+          "per_10k": 35.1
+        },
+        {
+          "year": 2016,
+          "works": 244,
+          "per_10k": 34.5
+        },
+        {
+          "year": 2017,
+          "works": 329,
+          "per_10k": 43.7
+        },
+        {
+          "year": 2018,
+          "works": 451,
+          "per_10k": 54.1
+        },
+        {
+          "year": 2019,
+          "works": 617,
+          "per_10k": 65.7
+        },
+        {
+          "year": 2020,
+          "works": 770,
+          "per_10k": 72.5
+        },
+        {
+          "year": 2021,
+          "works": 1050,
+          "per_10k": 95.6
+        },
+        {
+          "year": 2022,
+          "works": 1295,
+          "per_10k": 121.2
+        },
+        {
+          "year": 2023,
+          "works": 1622,
+          "per_10k": 129.8
+        },
+        {
+          "year": 2024,
+          "works": 1785,
+          "per_10k": 122.9
+        },
+        {
+          "year": 2025,
+          "works": 2596,
+          "per_10k": 142.9
+        }
+      ],
+      "features": {
+        "normalized_growth": 3.57,
+        "organizations": 3544,
+        "countries": 109
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Centre National de la Recherche Scientifique",
+        "The University of Tokyo",
+        "Chinese Academy of Sciences",
+        "Tsinghua University",
+        "Shanghai Jiao Tong University"
+      ],
+      "top_countries": [
+        "CN",
+        "US",
+        "JP",
+        "FR",
+        "DE"
+      ],
+      "rank": 8
+    },
+    {
+      "id": "T10462",
+      "title": "Reinforcement Learning in Robotics",
+      "summary": "Группа работ по теме «Reinforcement Learning in Robotics».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "Diagnosing Non-Intermittent Anomalies in Reinforcement Learning Policy Executions (Short Paper)",
+        "url": "https://doi.org/10.4230/oasics.dx.2024.16",
+        "year": 2017,
+        "venue": "arXiv (Cornell University)",
+        "cited_by": 11354,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Continuous control with deep reinforcement learning",
+          "url": "https://openalex.org/W2963864421",
+          "year": 2016,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 6783
+        },
+        {
+          "title": "Deep Reinforcement Learning with Double Q-Learning",
+          "url": "https://doi.org/10.1609/aaai.v30i1.10295",
+          "year": 2016,
+          "venue": "AAAI Publications (The Association for the Advancement of Artificial Intelligence (AAAI))",
+          "cited_by": 6271
+        },
+        {
+          "title": "Continuous control with deep reinforcement learning",
+          "url": "https://doi.org/10.48550/arxiv.1509.02971",
+          "year": 2015,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 5370
+        },
+        {
+          "title": "Playing Atari with Deep Reinforcement Learning",
+          "url": "https://doi.org/10.48550/arxiv.1312.5602",
+          "year": 2013,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 5104
+        },
+        {
+          "title": "Deep Reinforcement Learning: A Brief Survey",
+          "url": "https://doi.org/10.1109/msp.2017.2743240",
+          "year": 2017,
+          "venue": "IEEE Signal Processing Magazine",
+          "cited_by": 4434
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 19339,
+      "series": [
+        {
+          "year": 2010,
+          "works": 305,
+          "per_10k": 46.8
+        },
+        {
+          "year": 2011,
+          "works": 250,
+          "per_10k": 38.0
+        },
+        {
+          "year": 2012,
+          "works": 350,
+          "per_10k": 50.7
+        },
+        {
+          "year": 2013,
+          "works": 360,
+          "per_10k": 49.8
+        },
+        {
+          "year": 2014,
+          "works": 300,
+          "per_10k": 42.9
+        },
+        {
+          "year": 2015,
+          "works": 321,
+          "per_10k": 46.2
+        },
+        {
+          "year": 2016,
+          "works": 480,
+          "per_10k": 67.9
+        },
+        {
+          "year": 2017,
+          "works": 639,
+          "per_10k": 85.0
+        },
+        {
+          "year": 2018,
+          "works": 1098,
+          "per_10k": 131.8
+        },
+        {
+          "year": 2019,
+          "works": 1677,
+          "per_10k": 178.4
+        },
+        {
+          "year": 2020,
+          "works": 2016,
+          "per_10k": 189.8
+        },
+        {
+          "year": 2021,
+          "works": 2443,
+          "per_10k": 222.3
+        },
+        {
+          "year": 2022,
+          "works": 1953,
+          "per_10k": 182.8
+        },
+        {
+          "year": 2023,
+          "works": 2124,
+          "per_10k": 169.9
+        },
+        {
+          "year": 2024,
+          "works": 1842,
+          "per_10k": 126.9
+        },
+        {
+          "year": 2025,
+          "works": 3181,
+          "per_10k": 175.1
+        }
+      ],
+      "features": {
+        "normalized_growth": 3.22,
+        "organizations": 3394,
+        "countries": 113
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Google (United States)",
+        "University of California, Berkeley",
+        "Tsinghua University",
+        "Carnegie Mellon University",
+        "Massachusetts Institute of Technology"
+      ],
+      "top_countries": [
+        "US",
+        "CN",
+        "GB",
+        "FR",
+        "DE"
+      ],
+      "rank": 9
+    },
+    {
+      "id": "T14413",
+      "title": "Advanced Technologies in Various Fields",
+      "summary": "Группа работ по теме «Advanced Technologies in Various Fields».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "Comparative analysis of image classification algorithms based on traditional machine learning and deep learning",
+        "url": "https://doi.org/10.1016/j.patrec.2020.07.042",
+        "year": 2020,
+        "venue": "Pattern Recognition Letters",
+        "cited_by": 848,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Testing the fluctuations of oil resource price volatility: A hurdle for economic recovery",
+          "url": "https://doi.org/10.1016/j.resourpol.2022.102982",
+          "year": 2022,
+          "venue": "Resources Policy",
+          "cited_by": 394
+        },
+        {
+          "title": "Exploring the effect of digital transformation on Firms’ innovation performance",
+          "url": "https://doi.org/10.1016/j.jik.2023.100317",
+          "year": 2023,
+          "venue": "Journal of Innovation & Knowledge",
+          "cited_by": 371
+        },
+        {
+          "title": "Deepfake detection using deep learning methods: A systematic and comprehensive review",
+          "url": "https://doi.org/10.1002/widm.1520",
+          "year": 2023,
+          "venue": "Wiley Interdisciplinary Reviews Data Mining and Knowledge Discovery",
+          "cited_by": 327
+        },
+        {
+          "title": "Large group activity security risk assessment and risk early warning based on random forest algorithm",
+          "url": "https://doi.org/10.1016/j.patrec.2021.01.008",
+          "year": 2021,
+          "venue": "Pattern Recognition Letters",
+          "cited_by": 272
+        },
+        {
+          "title": "Knowledge base graph embedding module design for Visual question answering model",
+          "url": "https://doi.org/10.1016/j.patcog.2021.108153",
+          "year": 2021,
+          "venue": "Pattern Recognition",
+          "cited_by": 213
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 7423,
+      "series": [
+        {
+          "year": 2010,
+          "works": 105,
+          "per_10k": 16.1
+        },
+        {
+          "year": 2011,
+          "works": 120,
+          "per_10k": 18.2
+        },
+        {
+          "year": 2012,
+          "works": 153,
+          "per_10k": 22.2
+        },
+        {
+          "year": 2013,
+          "works": 194,
+          "per_10k": 26.9
+        },
+        {
+          "year": 2014,
+          "works": 168,
+          "per_10k": 24.0
+        },
+        {
+          "year": 2015,
+          "works": 151,
+          "per_10k": 21.7
+        },
+        {
+          "year": 2016,
+          "works": 99,
+          "per_10k": 14.0
+        },
+        {
+          "year": 2017,
+          "works": 171,
+          "per_10k": 22.7
+        },
+        {
+          "year": 2018,
+          "works": 231,
+          "per_10k": 27.7
+        },
+        {
+          "year": 2019,
+          "works": 271,
+          "per_10k": 28.8
+        },
+        {
+          "year": 2020,
+          "works": 470,
+          "per_10k": 44.2
+        },
+        {
+          "year": 2021,
+          "works": 637,
+          "per_10k": 58.0
+        },
+        {
+          "year": 2022,
+          "works": 1083,
+          "per_10k": 101.4
+        },
+        {
+          "year": 2023,
+          "works": 1379,
+          "per_10k": 110.3
+        },
+        {
+          "year": 2024,
+          "works": 831,
+          "per_10k": 57.2
+        },
+        {
+          "year": 2025,
+          "works": 1360,
+          "per_10k": 74.8
+        }
+      ],
+      "features": {
+        "normalized_growth": 3.03,
+        "organizations": 2971,
+        "countries": 96
+      },
+      "score": 1.0,
+      "top_organizations": [
+        "Sichuan University",
+        "University of Electronic Science and Technology of China",
+        "Zhengzhou University",
+        "Central South University",
+        "Wuhan University"
+      ],
+      "top_countries": [
+        "CN",
+        "US",
+        "IN",
+        "KR",
+        "MY"
+      ],
+      "rank": 10
     },
     {
       "id": "T11612",
@@ -431,7 +1635,7 @@
         }
       ],
       "first_year": 2010,
-      "works_total": 1770,
+      "works_total": 9643,
       "series": [
         {
           "year": 2010,
@@ -475,1129 +1679,66 @@
         },
         {
           "year": 2018,
-          "works": 144,
-          "per_10k": 57.6
+          "works": 719,
+          "per_10k": 86.3
+        },
+        {
+          "year": 2019,
+          "works": 900,
+          "per_10k": 95.8
+        },
+        {
+          "year": 2020,
+          "works": 1143,
+          "per_10k": 107.6
+        },
+        {
+          "year": 2021,
+          "works": 1095,
+          "per_10k": 99.7
+        },
+        {
+          "year": 2022,
+          "works": 903,
+          "per_10k": 84.5
+        },
+        {
+          "year": 2023,
+          "works": 901,
+          "per_10k": 72.1
+        },
+        {
+          "year": 2024,
+          "works": 536,
+          "per_10k": 36.9
+        },
+        {
+          "year": 2025,
+          "works": 1820,
+          "per_10k": 100.2
         }
       ],
       "features": {
-        "normalized_growth": 5.03,
-        "organizations": 557,
-        "countries": 45
+        "normalized_growth": 3.0,
+        "organizations": 1745,
+        "countries": 95
       },
-      "score": 1.0,
+      "score": 0.999,
       "top_organizations": [
         "University of California, Berkeley",
-        "University of Edinburgh",
         "Stanford University",
         "Princeton University",
+        "Google (United States)",
         "Carnegie Mellon University"
       ],
       "top_countries": [
         "US",
-        "FR",
         "CN",
+        "FR",
         "GB",
-        "CA"
-      ],
-      "rank": 4
-    },
-    {
-      "id": "T11307",
-      "title": "Domain Adaptation and Few-Shot Learning",
-      "summary": "Группа работ по теме «Domain Adaptation and Few-Shot Learning».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning",
-        "url": "https://doi.org/10.1609/aaai.v31i1.11231",
-        "year": 2017,
-        "venue": "AAAI Publications (The Association for the Advancement of Artificial Intelligence (AAAI))",
-        "cited_by": 12734,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "A survey of transfer learning",
-          "url": "https://doi.org/10.1186/s40537-016-0043-6",
-          "year": 2016,
-          "venue": "Journal Of Big Data",
-          "cited_by": 6290
-        },
-        {
-          "title": "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks",
-          "url": "https://doi.org/10.48550/arxiv.1703.03400",
-          "year": 2017,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 5794
-        },
-        {
-          "title": "Prototypical Networks for Few-shot Learning",
-          "url": "https://doi.org/10.48550/arxiv.1703.05175",
-          "year": 2017,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 5204
-        },
-        {
-          "title": "Learning without Forgetting",
-          "url": "https://doi.org/10.1109/tpami.2017.2773081",
-          "year": 2017,
-          "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
-          "cited_by": 4034
-        },
-        {
-          "title": "Deep Convolutional Neural Networks for Image Classification: A Comprehensive Review",
-          "url": "https://doi.org/10.1162/neco_a_00990",
-          "year": 2017,
-          "venue": "Neural Computation",
-          "cited_by": 3570
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 1772,
-      "series": [
-        {
-          "year": 2010,
-          "works": 54,
-          "per_10k": 8.3
-        },
-        {
-          "year": 2011,
-          "works": 66,
-          "per_10k": 10.0
-        },
-        {
-          "year": 2012,
-          "works": 99,
-          "per_10k": 14.3
-        },
-        {
-          "year": 2013,
-          "works": 129,
-          "per_10k": 17.9
-        },
-        {
-          "year": 2014,
-          "works": 151,
-          "per_10k": 21.6
-        },
-        {
-          "year": 2015,
-          "works": 217,
-          "per_10k": 31.2
-        },
-        {
-          "year": 2016,
-          "works": 333,
-          "per_10k": 47.1
-        },
-        {
-          "year": 2017,
-          "works": 511,
-          "per_10k": 67.9
-        },
-        {
-          "year": 2018,
-          "works": 212,
-          "per_10k": 84.8
-        }
-      ],
-      "features": {
-        "normalized_growth": 5.0,
-        "organizations": 829,
-        "countries": 54
-      },
-      "score": 1.0,
-      "top_organizations": [
-        "Carnegie Mellon University",
-        "Google (United States)",
-        "Chinese Academy of Sciences",
-        "University of California, Berkeley",
-        "Tsinghua University"
-      ],
-      "top_countries": [
-        "US",
-        "CN",
-        "FR",
-        "AU",
-        "GB"
-      ],
-      "rank": 5
-    },
-    {
-      "id": "T12676",
-      "title": "Machine Learning and ELM",
-      "summary": "Группа работ по теме «Machine Learning and ELM».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Extreme Learning Machine for Regression and Multiclass Classification",
-        "url": "https://doi.org/10.1109/tsmcb.2011.2168604",
-        "year": 2011,
-        "venue": "IEEE Transactions on Systems Man and Cybernetics Part B (Cybernetics)",
-        "cited_by": 5581,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "Gradient boosting machines, a tutorial",
-          "url": "https://doi.org/10.3389/fnbot.2013.00021",
-          "year": 2013,
-          "venue": "Frontiers in Neurorobotics",
-          "cited_by": 3896
-        },
-        {
-          "title": "Broad Learning System: An Effective and Efficient Incremental Learning System Without the Need for Deep Architecture",
-          "url": "https://doi.org/10.1109/tnnls.2017.2716952",
-          "year": 2017,
-          "venue": "IEEE Transactions on Neural Networks and Learning Systems",
-          "cited_by": 1936
-        },
-        {
-          "title": "Extreme learning machines: a survey",
-          "url": "https://doi.org/10.1007/s13042-011-0019-y",
-          "year": 2011,
-          "venue": "International Journal of Machine Learning and Cybernetics",
-          "cited_by": 1932
-        },
-        {
-          "title": "Trends in extreme learning machines: A review",
-          "url": "https://doi.org/10.1016/j.neunet.2014.10.001",
-          "year": 2014,
-          "venue": "Neural Networks",
-          "cited_by": 1752
-        },
-        {
-          "title": "Extreme Learning Machine for Multilayer Perceptron",
-          "url": "https://doi.org/10.1109/tnnls.2015.2424995",
-          "year": 2015,
-          "venue": "IEEE Transactions on Neural Networks and Learning Systems",
-          "cited_by": 1475
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 2979,
-      "series": [
-        {
-          "year": 2010,
-          "works": 68,
-          "per_10k": 10.4
-        },
-        {
-          "year": 2011,
-          "works": 114,
-          "per_10k": 17.3
-        },
-        {
-          "year": 2012,
-          "works": 207,
-          "per_10k": 30.0
-        },
-        {
-          "year": 2013,
-          "works": 282,
-          "per_10k": 39.0
-        },
-        {
-          "year": 2014,
-          "works": 384,
-          "per_10k": 54.9
-        },
-        {
-          "year": 2015,
-          "works": 482,
-          "per_10k": 69.3
-        },
-        {
-          "year": 2016,
-          "works": 465,
-          "per_10k": 65.7
-        },
-        {
-          "year": 2017,
-          "works": 553,
-          "per_10k": 73.5
-        },
-        {
-          "year": 2018,
-          "works": 424,
-          "per_10k": 169.6
-        }
-      ],
-      "features": {
-        "normalized_growth": 4.48,
-        "organizations": 1367,
-        "countries": 78
-      },
-      "score": 1.0,
-      "top_organizations": [
-        "Nanyang Technological University",
-        "Northeastern University",
-        "Chinese Academy of Sciences",
-        "Xi'an Jiaotong University",
-        "China Jiliang University"
-      ],
-      "top_countries": [
-        "CN",
-        "US",
-        "IN",
-        "SG",
-        "ES"
-      ],
-      "rank": 6
-    },
-    {
-      "id": "T13702",
-      "title": "Machine Learning in Healthcare",
-      "summary": "Группа работ по теме «Machine Learning in Healthcare».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "A guide to deep learning in healthcare",
-        "url": "https://doi.org/10.1038/s41591-018-0316-z",
-        "year": 2018,
-        "venue": "Nature Medicine",
-        "cited_by": 5126,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "Machine Learning in Medicine",
-          "url": "https://doi.org/10.1161/circulationaha.115.001593",
-          "year": 2015,
-          "venue": "Circulation",
-          "cited_by": 3534
-        },
-        {
-          "title": "Deep learning for healthcare: review, opportunities and challenges",
-          "url": "https://doi.org/10.1093/bib/bbx044",
-          "year": 2017,
-          "venue": "Briefings in Bioinformatics",
-          "cited_by": 3115
-        },
-        {
-          "title": "Scalable and accurate deep learning with electronic health records",
-          "url": "https://doi.org/10.1038/s41746-018-0029-1",
-          "year": 2018,
-          "venue": "npj Digital Medicine",
-          "cited_by": 2574
-        },
-        {
-          "title": "Artificial intelligence in medicine",
-          "url": "https://doi.org/10.1016/j.metabol.2017.01.011",
-          "year": 2017,
-          "venue": "Metabolism",
-          "cited_by": 2309
-        },
-        {
-          "title": "Deep Learning for Health Informatics",
-          "url": "https://doi.org/10.1109/jbhi.2016.2636665",
-          "year": 2016,
-          "venue": "IEEE Journal of Biomedical and Health Informatics",
-          "cited_by": 2015
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 1980,
-      "series": [
-        {
-          "year": 2010,
-          "works": 81,
-          "per_10k": 12.4
-        },
-        {
-          "year": 2011,
-          "works": 113,
-          "per_10k": 17.2
-        },
-        {
-          "year": 2012,
-          "works": 157,
-          "per_10k": 22.8
-        },
-        {
-          "year": 2013,
-          "works": 174,
-          "per_10k": 24.1
-        },
-        {
-          "year": 2014,
-          "works": 219,
-          "per_10k": 31.3
-        },
-        {
-          "year": 2015,
-          "works": 256,
-          "per_10k": 36.8
-        },
-        {
-          "year": 2016,
-          "works": 349,
-          "per_10k": 49.3
-        },
-        {
-          "year": 2017,
-          "works": 390,
-          "per_10k": 51.8
-        },
-        {
-          "year": 2018,
-          "works": 241,
-          "per_10k": 96.4
-        }
-      ],
-      "features": {
-        "normalized_growth": 3.47,
-        "organizations": 1515,
-        "countries": 74
-      },
-      "score": 1.0,
-      "top_organizations": [
-        "Harvard University",
-        "Stanford University",
-        "Massachusetts Institute of Technology",
-        "University College London",
-        "Massachusetts General Hospital"
-      ],
-      "top_countries": [
-        "US",
-        "CN",
-        "GB",
-        "FR",
-        "CA"
-      ],
-      "rank": 7
-    },
-    {
-      "id": "T13559",
-      "title": "Edcuational Technology Systems",
-      "summary": "Группа работ по теме «Edcuational Technology Systems».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Metode Penelitian Kuantitatif",
-        "url": "https://openalex.org/W2908454278",
-        "year": 2018,
-        "venue": null,
-        "cited_by": 7820,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "Metodologi Penelitian Kualitatif",
-          "url": "https://openalex.org/W2284559665",
-          "year": 2014,
-          "venue": "Andalas University Repository (Andalas University)",
-          "cited_by": 2558
-        },
-        {
-          "title": "Metode penelitian kuantitatif, kualitatif dan kombinasi (mixed methods)",
-          "url": "https://openalex.org/W3141259220",
-          "year": 2013,
-          "venue": null,
-          "cited_by": 1179
-        },
-        {
-          "title": "Educational Research: Planning, Conducting, and Evaluating Quantitative and Qualitative Research, Enhanced Pearson eText with Loose-Leaf Version--Access Card Package. Fifth Edition.",
-          "url": "https://openalex.org/W1886907483",
-          "year": 2015,
-          "venue": null,
-          "cited_by": 886
-        },
-        {
-          "title": "Metode penelitian : suatu pendekatan proposal",
-          "url": "https://openalex.org/W2742264833",
-          "year": 2010,
-          "venue": "Andalas University Repository (Andalas University)",
-          "cited_by": 602
-        },
-        {
-          "title": "Metodologi Penelitian: lengkap, praktis, dan mudah dipahami",
-          "url": "https://openalex.org/W2747737604",
-          "year": 2014,
-          "venue": null,
-          "cited_by": 391
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 17800,
-      "series": [
-        {
-          "year": 2010,
-          "works": 794,
-          "per_10k": 121.9
-        },
-        {
-          "year": 2011,
-          "works": 894,
-          "per_10k": 135.8
-        },
-        {
-          "year": 2012,
-          "works": 1377,
-          "per_10k": 199.6
-        },
-        {
-          "year": 2013,
-          "works": 1609,
-          "per_10k": 222.7
-        },
-        {
-          "year": 2014,
-          "works": 1986,
-          "per_10k": 283.7
-        },
-        {
-          "year": 2015,
-          "works": 2790,
-          "per_10k": 401.3
-        },
-        {
-          "year": 2016,
-          "works": 3316,
-          "per_10k": 468.8
-        },
-        {
-          "year": 2017,
-          "works": 3922,
-          "per_10k": 521.4
-        },
-        {
-          "year": 2018,
-          "works": 1112,
-          "per_10k": 444.8
-        }
-      ],
-      "features": {
-        "normalized_growth": 3.12,
-        "organizations": 777,
-        "countries": 70
-      },
-      "score": 1.0,
-      "top_organizations": [
-        "Telkom University",
-        "Diponegoro University",
-        "Institut Teknologi Sepuluh Nopember",
-        "State University of Malang",
-        "Gunadarma University"
-      ],
-      "top_countries": [
-        "ID",
-        "US",
-        "MY",
-        "IN",
-        "CA"
-      ],
-      "rank": 8
-    },
-    {
-      "id": "T14064",
-      "title": "Organizational and Employee Performance",
-      "summary": "Группа работ по теме «Organizational and Employee Performance».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Validity and Reliability of the Research Instrument; How to Test the Validation of a Questionnaire/Survey in a Research",
-        "url": "https://doi.org/10.2139/ssrn.3205040",
-        "year": 2016,
-        "venue": "SSRN Electronic Journal",
-        "cited_by": 1757,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "Research Design and Methods: A Systematic Review of Research Paradigms, Sampling Issues and Instruments Development",
-          "url": "https://doi.org/10.4172/2162-6359.1000403",
-          "year": 2017,
-          "venue": "International Journal of Economics & Management Sciences",
-          "cited_by": 966
-        },
-        {
-          "title": "Tips to use partial least squares structural equation modelling (PLS-SEM) in knowledge management",
-          "url": "https://doi.org/10.1108/jkm-05-2018-0322",
-          "year": 2018,
-          "venue": "Journal of Knowledge Management",
-          "cited_by": 665
-        },
-        {
-          "title": "How Perceived Corporate Social Responsibility Affects Employee Cynicism: The Mediating Role of Organizational Trust",
-          "url": "https://doi.org/10.1007/s10551-018-3882-6",
-          "year": 2018,
-          "venue": "Journal of Business Ethics",
-          "cited_by": 365
-        },
-        {
-          "title": "The impact of Transformational and Authentic leadership on innovation in higher education: The contingent role of knowledge sharing",
-          "url": "https://doi.org/10.1016/j.tele.2017.09.018",
-          "year": 2017,
-          "venue": "Telematics and Informatics",
-          "cited_by": 307
-        },
-        {
-          "title": "The associations among market orientation, technology orientation, entrepreneurial orientation and organizational performance",
-          "url": "https://doi.org/10.1108/bij-02-2017-0024",
-          "year": 2018,
-          "venue": "Benchmarking An International Journal",
-          "cited_by": 297
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 4397,
-      "series": [
-        {
-          "year": 2010,
-          "works": 222,
-          "per_10k": 34.1
-        },
-        {
-          "year": 2011,
-          "works": 239,
-          "per_10k": 36.3
-        },
-        {
-          "year": 2012,
-          "works": 335,
-          "per_10k": 48.6
-        },
-        {
-          "year": 2013,
-          "works": 396,
-          "per_10k": 54.8
-        },
-        {
-          "year": 2014,
-          "works": 470,
-          "per_10k": 67.1
-        },
-        {
-          "year": 2015,
-          "works": 558,
-          "per_10k": 80.3
-        },
-        {
-          "year": 2016,
-          "works": 813,
-          "per_10k": 114.9
-        },
-        {
-          "year": 2017,
-          "works": 1002,
-          "per_10k": 133.2
-        },
-        {
-          "year": 2018,
-          "works": 362,
-          "per_10k": 144.8
-        }
-      ],
-      "features": {
-        "normalized_growth": 3.11,
-        "organizations": 935,
-        "countries": 88
-      },
-      "score": 1.0,
-      "top_organizations": [
-        "University of Jordan",
-        "Al-Balqa Applied University",
-        "Northern University of Malaysia",
-        "World Islamic Sciences and Education University",
-        "Al-Zaytoonah University of Jordan"
-      ],
-      "top_countries": [
-        "JO",
-        "IR",
-        "MY",
-        "IN",
-        "PK"
-      ],
-      "rank": 9
-    },
-    {
-      "id": "T10664",
-      "title": "Sentiment Analysis and Opinion Mining",
-      "summary": "Группа работ по теме «Sentiment Analysis and Opinion Mining».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Lexicon-Based Methods for Sentiment Analysis",
-        "url": "https://doi.org/10.1162/coli_a_00049",
-        "year": 2011,
-        "venue": "Computational Linguistics",
-        "cited_by": 3300,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "Learning Word Vectors for Sentiment Analysis",
-          "url": "https://openalex.org/W2113459411",
-          "year": 2011,
-          "venue": null,
-          "cited_by": 3294
-        },
-        {
-          "title": "Sentiment Analysis and Opinion Mining",
-          "url": "https://doi.org/10.2200/s00416ed1v01y201204hlt016",
-          "year": 2012,
-          "venue": "Synthesis lectures on human language technologies",
-          "cited_by": 3289
-        },
-        {
-          "title": "Sentiment analysis algorithms and applications: A survey",
-          "url": "https://doi.org/10.1016/j.asej.2014.04.011",
-          "year": 2014,
-          "venue": "Ain Shams Engineering Journal",
-          "cited_by": 3264
-        },
-        {
-          "title": "CROWDSOURCING A WORD–EMOTION ASSOCIATION LEXICON",
-          "url": "https://doi.org/10.1111/j.1467-8640.2012.00460.x",
-          "year": 2012,
-          "venue": "Computational Intelligence",
-          "cited_by": 2650
-        },
-        {
-          "title": "Norms of valence, arousal, and dominance for 13,915 English lemmas",
-          "url": "https://doi.org/10.3758/s13428-012-0314-x",
-          "year": 2013,
-          "venue": "Behavior Research Methods",
-          "cited_by": 2009
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 5441,
-      "series": [
-        {
-          "year": 2010,
-          "works": 261,
-          "per_10k": 40.1
-        },
-        {
-          "year": 2011,
-          "works": 293,
-          "per_10k": 44.5
-        },
-        {
-          "year": 2012,
-          "works": 454,
-          "per_10k": 65.8
-        },
-        {
-          "year": 2013,
-          "works": 585,
-          "per_10k": 81.0
-        },
-        {
-          "year": 2014,
-          "works": 632,
-          "per_10k": 90.3
-        },
-        {
-          "year": 2015,
-          "works": 728,
-          "per_10k": 104.7
-        },
-        {
-          "year": 2016,
-          "works": 868,
-          "per_10k": 122.7
-        },
-        {
-          "year": 2017,
-          "works": 984,
-          "per_10k": 130.8
-        },
-        {
-          "year": 2018,
-          "works": 636,
-          "per_10k": 254.4
-        }
-      ],
-      "features": {
-        "normalized_growth": 3.04,
-        "organizations": 2054,
-        "countries": 99
-      },
-      "score": 1.0,
-      "top_organizations": [
-        "Nanyang Technological University",
-        "Tsinghua University",
-        "Harbin Institute of Technology",
-        "Chinese Academy of Sciences",
-        "City University of Hong Kong"
-      ],
-      "top_countries": [
-        "CN",
-        "US",
-        "IN",
-        "FR",
-        "GB"
-      ],
-      "rank": 10
-    },
-    {
-      "id": "T12611",
-      "title": "Neural Networks and Reservoir Computing",
-      "summary": "Группа работ по теме «Neural Networks and Reservoir Computing».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Deep learning with coherent nanophotonic circuits",
-        "url": "https://doi.org/10.1038/nphoton.2017.93",
-        "year": 2017,
-        "venue": "Nature Photonics",
-        "cited_by": 3187,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "All-optical machine learning using diffractive deep neural networks",
-          "url": "https://doi.org/10.1126/science.aat8084",
-          "year": 2018,
-          "venue": "Science",
-          "cited_by": 2553
-        },
-        {
-          "title": "Information processing using a single dynamical node as complex system",
-          "url": "https://doi.org/10.1038/ncomms1476",
-          "year": 2011,
-          "venue": "Nature Communications",
-          "cited_by": 1720
-        },
-        {
-          "title": "Chiral quantum optics",
-          "url": "https://doi.org/10.1038/nature21037",
-          "year": 2017,
-          "venue": "Nature",
-          "cited_by": 1651
-        },
-        {
-          "title": "Neuromorphic computing with nanoscale spintronic oscillators",
-          "url": "https://doi.org/10.1038/nature23011",
-          "year": 2017,
-          "venue": "Nature",
-          "cited_by": 1366
-        },
-        {
-          "title": "Model-Free Prediction of Large Spatiotemporally Chaotic Systems from Data: A Reservoir Computing Approach",
-          "url": "https://doi.org/10.1103/physrevlett.120.024102",
-          "year": 2018,
-          "venue": "Physical Review Letters",
-          "cited_by": 1331
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 1807,
-      "series": [
-        {
-          "year": 2010,
-          "works": 114,
-          "per_10k": 17.5
-        },
-        {
-          "year": 2011,
-          "works": 135,
-          "per_10k": 20.5
-        },
-        {
-          "year": 2012,
-          "works": 160,
-          "per_10k": 23.2
-        },
-        {
-          "year": 2013,
-          "works": 170,
-          "per_10k": 23.5
-        },
-        {
-          "year": 2014,
-          "works": 192,
-          "per_10k": 27.4
-        },
-        {
-          "year": 2015,
-          "works": 244,
-          "per_10k": 35.1
-        },
-        {
-          "year": 2016,
-          "works": 244,
-          "per_10k": 34.5
-        },
-        {
-          "year": 2017,
-          "works": 329,
-          "per_10k": 43.7
-        },
-        {
-          "year": 2018,
-          "works": 219,
-          "per_10k": 87.6
-        }
-      ],
-      "features": {
-        "normalized_growth": 2.7,
-        "organizations": 980,
-        "countries": 69
-      },
-      "score": 0.898,
-      "top_organizations": [
-        "Centre National de la Recherche Scientifique",
-        "Ghent University",
-        "Universitat de les Illes Balears",
-        "Princeton University",
-        "Institute for Cross-Disciplinary Physics and Complex Systems"
-      ],
-      "top_countries": [
-        "CN",
-        "US",
-        "FR",
-        "JP",
-        "GB"
+        "RU"
       ],
       "rank": 11
-    },
-    {
-      "id": "T12535",
-      "title": "Machine Learning and Data Classification",
-      "summary": "Группа работ по теме «Machine Learning and Data Classification».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Dropout: a simple way to prevent neural networks from overfitting",
-        "url": "https://openalex.org/W2095705004",
-        "year": 2014,
-        "venue": null,
-        "cited_by": 34236,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "LightGBM: A Highly Efficient Gradient Boosting Decision Tree",
-          "url": "https://openalex.org/W2768348081",
-          "year": 2017,
-          "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
-          "cited_by": 9490
-        },
-        {
-          "title": "Neural Architecture Search with Reinforcement Learning",
-          "url": "https://doi.org/10.48550/arxiv.1611.01578",
-          "year": 2016,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 3881
-        },
-        {
-          "title": "A few useful things to know about machine learning",
-          "url": "https://doi.org/10.1145/2347736.2347755",
-          "year": 2012,
-          "venue": "Communications of the ACM",
-          "cited_by": 3338
-        },
-        {
-          "title": "Algorithms for Hyper-Parameter Optimization",
-          "url": "https://openalex.org/W2106411961",
-          "year": 2011,
-          "venue": null,
-          "cited_by": 3188
-        },
-        {
-          "title": "On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation",
-          "url": "https://doi.org/10.5555/1756006.1859921",
-          "year": 2010,
-          "venue": null,
-          "cited_by": 1988
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 2556,
-      "series": [
-        {
-          "year": 2010,
-          "works": 164,
-          "per_10k": 25.2
-        },
-        {
-          "year": 2011,
-          "works": 174,
-          "per_10k": 26.4
-        },
-        {
-          "year": 2012,
-          "works": 215,
-          "per_10k": 31.2
-        },
-        {
-          "year": 2013,
-          "works": 246,
-          "per_10k": 34.0
-        },
-        {
-          "year": 2014,
-          "works": 265,
-          "per_10k": 37.9
-        },
-        {
-          "year": 2015,
-          "works": 356,
-          "per_10k": 51.2
-        },
-        {
-          "year": 2016,
-          "works": 403,
-          "per_10k": 57.0
-        },
-        {
-          "year": 2017,
-          "works": 524,
-          "per_10k": 69.7
-        },
-        {
-          "year": 2018,
-          "works": 209,
-          "per_10k": 83.6
-        }
-      ],
-      "features": {
-        "normalized_growth": 2.56,
-        "organizations": 1324,
-        "countries": 80
-      },
-      "score": 0.854,
-      "top_organizations": [
-        "Universidad de Granada",
-        "Microsoft (United States)",
-        "Carnegie Mellon University",
-        "Stanford University",
-        "Universidad de Jaén"
-      ],
-      "top_countries": [
-        "US",
-        "CN",
-        "ES",
-        "FR",
-        "IN"
-      ],
-      "rank": 12
-    },
-    {
-      "id": "T12128",
-      "title": "AI in Service Interactions",
-      "summary": "Группа работ по теме «AI in Service Interactions».",
-      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
-      "motivation_is_placeholder": true,
-      "case_example": {
-        "title": "Artificial Intelligence in Service",
-        "url": "https://doi.org/10.1177/1094670517752459",
-        "year": 2018,
-        "venue": "Journal of Service Research",
-        "cited_by": 3474,
-        "is_placeholder": true
-      },
-      "sources": [
-        {
-          "title": "Brave new world: service robots in the frontline",
-          "url": "https://doi.org/10.1108/josm-04-2018-0119",
-          "year": 2018,
-          "venue": "Journal of service management",
-          "cited_by": 2229
-        },
-        {
-          "title": "Domo Arigato Mr. Roboto",
-          "url": "https://doi.org/10.1177/1094670516679272",
-          "year": 2016,
-          "venue": "Journal of Service Research",
-          "cited_by": 1302
-        },
-        {
-          "title": "Proceedings of the National Conference on Artificial Intelligence",
-          "url": "https://openalex.org/W2886362482",
-          "year": 2015,
-          "venue": null,
-          "cited_by": 1227
-        },
-        {
-          "title": "Assessing Acceptance of Assistive Social Agent Technology by Older Adults: the Almere Model",
-          "url": "https://doi.org/10.1007/s12369-010-0068-5",
-          "year": 2010,
-          "venue": "International Journal of Social Robotics",
-          "cited_by": 1218
-        },
-        {
-          "title": "Living up to the chatbot hype: The influence of anthropomorphic design cues and communicative agency framing on conversational agent and company perceptions",
-          "url": "https://doi.org/10.1016/j.chb.2018.03.051",
-          "year": 2018,
-          "venue": "Computers in Human Behavior",
-          "cited_by": 1124
-        }
-      ],
-      "first_year": 2010,
-      "works_total": 986,
-      "series": [
-        {
-          "year": 2010,
-          "works": 85,
-          "per_10k": 13.1
-        },
-        {
-          "year": 2011,
-          "works": 76,
-          "per_10k": 11.5
-        },
-        {
-          "year": 2012,
-          "works": 96,
-          "per_10k": 13.9
-        },
-        {
-          "year": 2013,
-          "works": 85,
-          "per_10k": 11.8
-        },
-        {
-          "year": 2014,
-          "works": 101,
-          "per_10k": 14.4
-        },
-        {
-          "year": 2015,
-          "works": 77,
-          "per_10k": 11.1
-        },
-        {
-          "year": 2016,
-          "works": 136,
-          "per_10k": 19.2
-        },
-        {
-          "year": 2017,
-          "works": 194,
-          "per_10k": 25.8
-        },
-        {
-          "year": 2018,
-          "works": 136,
-          "per_10k": 54.4
-        }
-      ],
-      "features": {
-        "normalized_growth": 2.48,
-        "organizations": 532,
-        "countries": 68
-      },
-      "score": 0.828,
-      "top_organizations": [
-        "Carnegie Mellon University",
-        "Pennsylvania State University",
-        "University of Southern California",
-        "University of Nebraska at Omaha",
-        "Universidad de Granada"
-      ],
-      "top_countries": [
-        "US",
-        "GB",
-        "IN",
-        "DE",
-        "JP"
-      ],
-      "rank": 13
     },
     {
       "id": "T10764",
@@ -1606,14 +1747,28 @@
       "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
       "motivation_is_placeholder": true,
       "case_example": {
-        "title": "Communication-Efficient Learning of Deep Networks from Decentralized\\n Data",
-        "url": "https://doi.org/10.48550/arxiv.1602.05629",
-        "year": 2016,
-        "venue": "arXiv (Cornell University)",
-        "cited_by": 5645,
+        "title": "Federated Machine Learning",
+        "url": "https://doi.org/10.1145/3298981",
+        "year": 2019,
+        "venue": "ACM Transactions on Intelligent Systems and Technology",
+        "cited_by": 6228,
         "is_placeholder": true
       },
       "sources": [
+        {
+          "title": "Communication-Efficient Learning of Deep Networks from Decentralized\\n Data",
+          "url": "https://doi.org/10.48550/arxiv.1602.05629",
+          "year": 2016,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 5645
+        },
+        {
+          "title": "Advances and Open Problems in Federated Learning",
+          "url": "https://doi.org/10.1561/2200000083",
+          "year": 2020,
+          "venue": "Foundations and Trends® in Machine Learning",
+          "cited_by": 5383
+        },
         {
           "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
           "url": "https://doi.org/10.48550/arxiv.1602.05629",
@@ -1622,36 +1777,22 @@
           "cited_by": 5190
         },
         {
+          "title": "Federated Learning: Challenges, Methods, and Future Directions",
+          "url": "https://doi.org/10.1109/msp.2020.2975749",
+          "year": 2020,
+          "venue": "IEEE Signal Processing Magazine",
+          "cited_by": 4992
+        },
+        {
           "title": "The Algorithmic Foundations of Differential Privacy",
           "url": "https://doi.org/10.1561/0400000042",
           "year": 2014,
           "venue": "Foundations and Trends® in Theoretical Computer Science",
           "cited_by": 4578
-        },
-        {
-          "title": "Federated Learning: Strategies for Improving Communication Efficiency",
-          "url": "https://doi.org/10.48550/arxiv.1610.05492",
-          "year": 2016,
-          "venue": "arXiv (Cornell University)",
-          "cited_by": 3050
-        },
-        {
-          "title": "Efficient Multi-User Computation Offloading for Mobile-Edge Cloud Computing",
-          "url": "https://doi.org/10.1109/tnet.2015.2487344",
-          "year": 2015,
-          "venue": "IEEE/ACM Transactions on Networking",
-          "cited_by": 2702
-        },
-        {
-          "title": "Privacy-Preserving Deep Learning via Additively Homomorphic Encryption",
-          "url": "https://doi.org/10.1109/tifs.2017.2787987",
-          "year": 2017,
-          "venue": "IEEE Transactions on Information Forensics and Security",
-          "cited_by": 1665
         }
       ],
       "first_year": 2010,
-      "works_total": 6443,
+      "works_total": 34811,
       "series": [
         {
           "year": 2010,
@@ -1695,151 +1836,535 @@
         },
         {
           "year": 2018,
-          "works": 602,
-          "per_10k": 240.8
+          "works": 1430,
+          "per_10k": 171.6
+        },
+        {
+          "year": 2019,
+          "works": 1693,
+          "per_10k": 180.1
+        },
+        {
+          "year": 2020,
+          "works": 2532,
+          "per_10k": 238.4
+        },
+        {
+          "year": 2021,
+          "works": 3284,
+          "per_10k": 298.9
+        },
+        {
+          "year": 2022,
+          "works": 3845,
+          "per_10k": 359.9
+        },
+        {
+          "year": 2023,
+          "works": 4911,
+          "per_10k": 392.9
+        },
+        {
+          "year": 2024,
+          "works": 5209,
+          "per_10k": 358.7
+        },
+        {
+          "year": 2025,
+          "works": 6066,
+          "per_10k": 333.8
         }
       ],
       "features": {
-        "normalized_growth": 2.4,
-        "organizations": 2225,
-        "countries": 94
+        "normalized_growth": 2.81,
+        "organizations": 7018,
+        "countries": 147
       },
-      "score": 0.8,
+      "score": 0.937,
       "top_organizations": [
-        "Carnegie Mellon University",
-        "University of California San Diego",
-        "Universitat Rovira i Virgili",
         "Xidian University",
-        "Microsoft (United States)"
+        "Beijing University of Posts and Telecommunications",
+        "Nanyang Technological University",
+        "University of Electronic Science and Technology of China",
+        "Hong Kong University of Science and Technology"
       ],
       "top_countries": [
-        "US",
         "CN",
+        "US",
         "IN",
         "AU",
-        "FR"
+        "GB"
       ],
-      "rank": 14
+      "rank": 12
     },
     {
-      "id": "T12262",
-      "title": "Hate Speech and Cyberbullying Detection",
-      "summary": "Группа работ по теме «Hate Speech and Cyberbullying Detection».",
+      "id": "T14064",
+      "title": "Organizational and Employee Performance",
+      "summary": "Группа работ по теме «Organizational and Employee Performance».",
       "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
       "motivation_is_placeholder": true,
       "case_example": {
-        "title": "Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings",
-        "url": "https://doi.org/10.48550/arxiv.1607.06520",
+        "title": "Validity and Reliability of the Research Instrument; How to Test the Validation of a Questionnaire/Survey in a Research",
+        "url": "https://doi.org/10.2139/ssrn.3205040",
         "year": 2016,
-        "venue": "arXiv (Cornell University)",
-        "cited_by": 1365,
+        "venue": "SSRN Electronic Journal",
+        "cited_by": 1757,
         "is_placeholder": true
       },
       "sources": [
         {
-          "title": "A Survey on Automatic Detection of Hate Speech in Text",
-          "url": "https://doi.org/10.1145/3232676",
+          "title": "Exploring the critical challenges and factors influencing the E-learning system usage during COVID-19 pandemic",
+          "url": "https://doi.org/10.1007/s10639-020-10219-y",
+          "year": 2020,
+          "venue": "Education and Information Technologies",
+          "cited_by": 1215
+        },
+        {
+          "title": "Research Design and Methods: A Systematic Review of Research Paradigms, Sampling Issues and Instruments Development",
+          "url": "https://doi.org/10.4172/2162-6359.1000403",
+          "year": 2017,
+          "venue": "International Journal of Economics & Management Sciences",
+          "cited_by": 966
+        },
+        {
+          "title": "Tips to use partial least squares structural equation modelling (PLS-SEM) in knowledge management",
+          "url": "https://doi.org/10.1108/jkm-05-2018-0322",
           "year": 2018,
-          "venue": "ACM Computing Surveys",
-          "cited_by": 1218
+          "venue": "Journal of Knowledge Management",
+          "cited_by": 665
         },
         {
-          "title": "#Ferguson: Digital protest, hashtag ethnography, and the racial politics of social media in the United States",
-          "url": "https://doi.org/10.1111/amet.12112",
-          "year": 2015,
-          "venue": "American Ethnologist",
-          "cited_by": 1114
+          "title": "Influence of Social Media Platforms on Public Health Protection Against the COVID-19 Pandemic via the Mediating Effects of Public Health Awareness and Behavioral Changes: Integrated Model",
+          "url": "https://doi.org/10.2196/19996",
+          "year": 2020,
+          "venue": "Journal of Medical Internet Research",
+          "cited_by": 416
         },
         {
-          "title": "Cyber Hate Speech on Twitter: An Application of Machine Classification and Statistical Modeling for Policy and Decision Making",
-          "url": "https://doi.org/10.1002/poi3.85",
-          "year": 2015,
-          "venue": "Policy & Internet",
-          "cited_by": 607
-        },
-        {
-          "title": "Detecting Hate Speech on the World Wide Web",
-          "url": "https://openalex.org/W78136081",
-          "year": 2012,
-          "venue": null,
-          "cited_by": 513
-        },
-        {
-          "title": "Custodians of the Internet: Platforms, Content Moderation, and the Hidden Decisions That Shape Social Media",
-          "url": "https://openalex.org/W2994507840",
-          "year": 2018,
-          "venue": null,
-          "cited_by": 510
+          "title": "The adoption of artificial intelligence and robotics in the hotel industry: prospects and challenges",
+          "url": "https://doi.org/10.1007/s12525-020-00442-3",
+          "year": 2020,
+          "venue": "Electronic Markets",
+          "cited_by": 377
         }
       ],
       "first_year": 2010,
-      "works_total": 3827,
+      "works_total": 22678,
       "series": [
         {
           "year": 2010,
-          "works": 273,
-          "per_10k": 41.9
+          "works": 222,
+          "per_10k": 34.1
         },
         {
           "year": 2011,
-          "works": 240,
-          "per_10k": 36.5
+          "works": 239,
+          "per_10k": 36.3
         },
         {
           "year": 2012,
-          "works": 349,
-          "per_10k": 50.6
+          "works": 335,
+          "per_10k": 48.6
         },
         {
           "year": 2013,
-          "works": 377,
-          "per_10k": 52.2
+          "works": 396,
+          "per_10k": 54.8
         },
         {
           "year": 2014,
-          "works": 424,
-          "per_10k": 60.6
+          "works": 470,
+          "per_10k": 67.1
         },
         {
           "year": 2015,
-          "works": 488,
-          "per_10k": 70.2
+          "works": 558,
+          "per_10k": 80.3
         },
         {
           "year": 2016,
-          "works": 659,
-          "per_10k": 93.2
+          "works": 813,
+          "per_10k": 114.9
         },
         {
           "year": 2017,
-          "works": 733,
-          "per_10k": 97.4
+          "works": 1002,
+          "per_10k": 133.2
         },
         {
           "year": 2018,
-          "works": 284,
-          "per_10k": 113.6
+          "works": 1256,
+          "per_10k": 150.7
+        },
+        {
+          "year": 2019,
+          "works": 1650,
+          "per_10k": 175.6
+        },
+        {
+          "year": 2020,
+          "works": 1944,
+          "per_10k": 183.0
+        },
+        {
+          "year": 2021,
+          "works": 2247,
+          "per_10k": 204.5
+        },
+        {
+          "year": 2022,
+          "works": 2411,
+          "per_10k": 225.7
+        },
+        {
+          "year": 2023,
+          "works": 2902,
+          "per_10k": 232.2
+        },
+        {
+          "year": 2024,
+          "works": 2798,
+          "per_10k": 192.7
+        },
+        {
+          "year": 2025,
+          "works": 3435,
+          "per_10k": 189.0
         }
       ],
       "features": {
-        "normalized_growth": 2.4,
-        "organizations": 1250,
-        "countries": 90
+        "normalized_growth": 2.73,
+        "organizations": 4655,
+        "countries": 152
       },
-      "score": 0.8,
+      "score": 0.91,
       "top_organizations": [
-        "University of Hull",
-        "Yale University",
-        "University of Ottawa",
-        "Michigan State University",
-        "Loyola University Chicago"
+        "University of Jordan",
+        "Al-Balqa Applied University",
+        "Applied Science Private University",
+        "Amman Arab University",
+        "Universiti Teknologi MARA"
+      ],
+      "top_countries": [
+        "JO",
+        "MY",
+        "IN",
+        "SA",
+        "ID"
+      ],
+      "rank": 13
+    },
+    {
+      "id": "T12535",
+      "title": "Machine Learning and Data Classification",
+      "summary": "Группа работ по теме «Machine Learning and Data Classification».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "Dropout: a simple way to prevent neural networks from overfitting",
+        "url": "https://openalex.org/W2095705004",
+        "year": 2014,
+        "venue": null,
+        "cited_by": 34236,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "LightGBM: A Highly Efficient Gradient Boosting Decision Tree",
+          "url": "https://openalex.org/W2768348081",
+          "year": 2017,
+          "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+          "cited_by": 9490
+        },
+        {
+          "title": "Neural Architecture Search with Reinforcement Learning",
+          "url": "https://doi.org/10.48550/arxiv.1611.01578",
+          "year": 2016,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 3881
+        },
+        {
+          "title": "A few useful things to know about machine learning",
+          "url": "https://doi.org/10.1145/2347736.2347755",
+          "year": 2012,
+          "venue": "Communications of the ACM",
+          "cited_by": 3338
+        },
+        {
+          "title": "On hyperparameter optimization of machine learning algorithms: Theory and practice",
+          "url": "https://doi.org/10.1016/j.neucom.2020.07.061",
+          "year": 2020,
+          "venue": "Neurocomputing",
+          "cited_by": 3249
+        },
+        {
+          "title": "Algorithms for Hyper-Parameter Optimization",
+          "url": "https://openalex.org/W2106411961",
+          "year": 2011,
+          "venue": null,
+          "cited_by": 3188
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 12702,
+      "series": [
+        {
+          "year": 2010,
+          "works": 164,
+          "per_10k": 25.2
+        },
+        {
+          "year": 2011,
+          "works": 174,
+          "per_10k": 26.4
+        },
+        {
+          "year": 2012,
+          "works": 215,
+          "per_10k": 31.2
+        },
+        {
+          "year": 2013,
+          "works": 246,
+          "per_10k": 34.0
+        },
+        {
+          "year": 2014,
+          "works": 265,
+          "per_10k": 37.9
+        },
+        {
+          "year": 2015,
+          "works": 356,
+          "per_10k": 51.2
+        },
+        {
+          "year": 2016,
+          "works": 403,
+          "per_10k": 57.0
+        },
+        {
+          "year": 2017,
+          "works": 524,
+          "per_10k": 69.7
+        },
+        {
+          "year": 2018,
+          "works": 697,
+          "per_10k": 83.6
+        },
+        {
+          "year": 2019,
+          "works": 955,
+          "per_10k": 101.6
+        },
+        {
+          "year": 2020,
+          "works": 1088,
+          "per_10k": 102.4
+        },
+        {
+          "year": 2021,
+          "works": 1368,
+          "per_10k": 124.5
+        },
+        {
+          "year": 2022,
+          "works": 1335,
+          "per_10k": 125.0
+        },
+        {
+          "year": 2023,
+          "works": 1539,
+          "per_10k": 123.1
+        },
+        {
+          "year": 2024,
+          "works": 1568,
+          "per_10k": 108.0
+        },
+        {
+          "year": 2025,
+          "works": 1805,
+          "per_10k": 99.3
+        }
+      ],
+      "features": {
+        "normalized_growth": 2.61,
+        "organizations": 4058,
+        "countries": 125
+      },
+      "score": 0.869,
+      "top_organizations": [
+        "Google (United States)",
+        "Universidad de Granada",
+        "Stanford University",
+        "Tsinghua University",
+        "Carnegie Mellon University"
       ],
       "top_countries": [
         "US",
-        "GB",
-        "AU",
-        "CA",
-        "CN"
+        "CN",
+        "DE",
+        "FR",
+        "IN"
+      ],
+      "rank": 14
+    },
+    {
+      "id": "T11512",
+      "title": "Anomaly Detection Techniques and Applications",
+      "summary": "Группа работ по теме «Anomaly Detection Techniques and Applications».",
+      "motivation": "Заполняется ядром на этапе описания кластеров: какую проблему решает тренд и какое преимущество даёт. Здесь показана только правдоподобная длина текста, чтобы вёрстка не поехала, когда придёт настоящее описание.",
+      "motivation_is_placeholder": true,
+      "case_example": {
+        "title": "Machine learning: Trends, perspectives, and prospects",
+        "url": "https://doi.org/10.1126/science.aaa8415",
+        "year": 2015,
+        "venue": "Science",
+        "cited_by": 9947,
+        "is_placeholder": true
+      },
+      "sources": [
+        {
+          "title": "Machine Learning: Algorithms, Real-World Applications and Research Directions",
+          "url": "https://doi.org/10.1007/s42979-021-00592-x",
+          "year": 2021,
+          "venue": "SN Computer Science",
+          "cited_by": 5368
+        },
+        {
+          "title": "A survey of deep neural network architectures and their applications",
+          "url": "https://doi.org/10.1016/j.neucom.2016.12.038",
+          "year": 2016,
+          "venue": "Neurocomputing",
+          "cited_by": 3285
+        },
+        {
+          "title": "Gaussian Error Linear Units (GELUs)",
+          "url": "https://doi.org/10.48550/arxiv.1606.08415",
+          "year": 2016,
+          "venue": "arXiv (Cornell University)",
+          "cited_by": 3197
+        },
+        {
+          "title": "Deep learning and its applications to machine health monitoring",
+          "url": "https://doi.org/10.1016/j.ymssp.2018.05.050",
+          "year": 2018,
+          "venue": "Mechanical Systems and Signal Processing",
+          "cited_by": 2803
+        },
+        {
+          "title": "A review of uncertainty quantification in deep learning: Techniques, applications and challenges",
+          "url": "https://doi.org/10.1016/j.inffus.2021.05.008",
+          "year": 2021,
+          "venue": "Information Fusion",
+          "cited_by": 2644
+        }
+      ],
+      "first_year": 2010,
+      "works_total": 30768,
+      "series": [
+        {
+          "year": 2010,
+          "works": 458,
+          "per_10k": 70.3
+        },
+        {
+          "year": 2011,
+          "works": 515,
+          "per_10k": 78.2
+        },
+        {
+          "year": 2012,
+          "works": 523,
+          "per_10k": 75.8
+        },
+        {
+          "year": 2013,
+          "works": 653,
+          "per_10k": 90.4
+        },
+        {
+          "year": 2014,
+          "works": 697,
+          "per_10k": 99.6
+        },
+        {
+          "year": 2015,
+          "works": 754,
+          "per_10k": 108.5
+        },
+        {
+          "year": 2016,
+          "works": 897,
+          "per_10k": 126.8
+        },
+        {
+          "year": 2017,
+          "works": 993,
+          "per_10k": 132.0
+        },
+        {
+          "year": 2018,
+          "works": 1365,
+          "per_10k": 163.8
+        },
+        {
+          "year": 2019,
+          "works": 1736,
+          "per_10k": 184.7
+        },
+        {
+          "year": 2020,
+          "works": 2250,
+          "per_10k": 211.8
+        },
+        {
+          "year": 2021,
+          "works": 2645,
+          "per_10k": 240.7
+        },
+        {
+          "year": 2022,
+          "works": 2855,
+          "per_10k": 267.2
+        },
+        {
+          "year": 2023,
+          "works": 3400,
+          "per_10k": 272.0
+        },
+        {
+          "year": 2024,
+          "works": 5382,
+          "per_10k": 370.7
+        },
+        {
+          "year": 2025,
+          "works": 5645,
+          "per_10k": 310.6
+        }
+      ],
+      "features": {
+        "normalized_growth": 2.59,
+        "organizations": 8137,
+        "countries": 140
+      },
+      "score": 0.862,
+      "top_organizations": [
+        "Chinese Academy of Sciences",
+        "Tsinghua University",
+        "Harbin Institute of Technology",
+        "Shanghai Jiao Tong University",
+        "Xi'an Jiaotong University"
+      ],
+      "top_countries": [
+        "CN",
+        "US",
+        "IN",
+        "FR",
+        "GB"
       ],
       "rank": 15
     }

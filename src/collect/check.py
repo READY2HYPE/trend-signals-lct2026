@@ -50,8 +50,9 @@ def main() -> None:
         gap = abs(got - exp) / exp if exp else 0
         if gap > worst_gap:
             worst_year, worst_gap = year, gap
+    where = f" в {worst_year}" if worst_year else ""
     results.append((worst_gap <= 0.02,
-                    f"худшее расхождение с агрегатом: {worst_gap:.2%} в {worst_year} (нужно до 2%)"))
+                    f"худшее расхождение с агрегатом: {worst_gap:.2%}{where} (нужно до 2%)"))
 
     if (cfg.raw / "arxiv").exists():
         pre = arxiv.read_preprints(cfg)
