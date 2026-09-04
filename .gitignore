@@ -4,6 +4,7 @@ data/*
 !data/sample/
 !data/aggregates/
 !data/manifest.json
+!data/index/
 *.jsonl
 *.csv.gz
 *.db

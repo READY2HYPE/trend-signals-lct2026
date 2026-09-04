@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 @dataclass(frozen=True)
 class Slice:
     slice_id: str
+    direction_name: str
     subfield_ids: list[int]
     year_start: int
     year_end: int
@@ -65,6 +66,7 @@ def load(path: Path | str = ROOT / "config" / "slice.yaml") -> Slice:
     p = cfg["paths"]
     return Slice(
         slice_id=cfg["slice_id"],
+        direction_name=cfg["direction"]["name"],
         subfield_ids=cfg["direction"]["openalex_subfield_ids"],
         year_start=cfg["years"]["start"],
         year_end=cfg["years"]["end"],
