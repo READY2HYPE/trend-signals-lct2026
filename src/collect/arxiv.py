@@ -2,8 +2,8 @@
 
 Учётная запись не нужна, лимита по числу запросов нет — только просьба не частить.
 Страница отдаёт 1300 записей, продолжение идёт по токену из ответа, как курсор
-у OpenAlex. Забираем весь раздел информатики целиком, отбор по подкатегориям —
-дальше по конвейеру: наборы протокола крупные, тоньше он не режет.
+у OpenAlex. Забираем разделы целиком, отбор по подкатегориям — дальше по конвейеру:
+наборы протокола крупные, тоньше он не режет.
 
 Берём `created` — дату первой версии. Нас интересует момент первого появления
 работы, а не дата последней правки.
@@ -28,6 +28,10 @@ OAI_NS = "{http://www.openarchives.org/OAI/2.0/}"
 ARX_NS = "{http://arxiv.org/OAI/arXiv/}"
 PAUSE = 3.0               # просьба arXiv не частить
 PART_ROWS = 100_000
+
+# Раздела информатики мало: заметная часть работ по машинному обучению лежит
+# в stat.ML, обработка сигналов и речи — в eess. Проверено сшивкой с OpenAlex.
+SETS = ("cs", "stat", "eess")
 
 PREPRINTS = pa.schema([
     ("id", pa.string()),                  # 2104.14399 или cs/0501001
@@ -97,22 +101,16 @@ def fetch_page(http: httpx.Client, params: dict) -> str:
     raise RuntimeError("arXiv десять раз подряд ответил «занято»")
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser(description="Метаданные препринтов arXiv")
-    ap.add_argument("--set", default="cs", help="раздел arXiv (по умолчанию информатика)")
-    ap.add_argument("--limit", type=int, help="остановиться после N записей (для пробы)")
-    args = ap.parse_args()
-
-    config.setup_console()
-    cfg = config.load()
-    out = cfg.raw / "arxiv"
+def harvest(cfg: config.Slice, oai_set: str, limit: int | None = None) -> int:
+    """Выгружает один раздел arXiv в свою папку. Возвращает число записей."""
+    out = cfg.raw / "arxiv" / f"set={oai_set}"
     out.mkdir(parents=True, exist_ok=True)
     state_file = out / "_state.json"
 
     state = json.loads(state_file.read_text()) if state_file.exists() else {}
     if state.get("done"):
-        print(f"уже выгружено: {state['rows']:,} записей")
-        return
+        print(f"  {oai_set}: уже выгружен, {state['rows']:,} записей")
+        return state["rows"]
 
     token = state.get("token")
     rows_done, part = state.get("rows", 0), state.get("part", 0)
@@ -132,12 +130,12 @@ def main() -> None:
             {"token": next_token, "part": part, "rows": rows_done, "done": done},
             ensure_ascii=False))
 
-    print(f"раздел {args.set}, продолжаем с {rows_done:,}")
+    print(f"  {oai_set}: продолжаем с {rows_done:,}", end="", flush=True)
     pending = token
     try:
         while True:
             params = ({"verb": "ListRecords", "resumptionToken": token} if token
-                      else {"verb": "ListRecords", "metadataPrefix": "arXiv", "set": args.set})
+                      else {"verb": "ListRecords", "metadataPrefix": "arXiv", "set": oai_set})
             tree = ElementTree.fromstring(fetch_page(http, params))
             page = [r for r in (parse_record(rec)
                                 for rec in tree.iter(OAI_NS + "record")) if r]
@@ -148,17 +146,35 @@ def main() -> None:
             pending = token
             if len(buffer) >= PART_ROWS:
                 flush(token, done=False)
-                print(f"  {rows_done:,}", flush=True)
-            if not token or (args.limit and rows_done + len(buffer) >= args.limit):
+                print(f" .{rows_done:,}", end="", flush=True)
+            if not token or (limit and rows_done + len(buffer) >= limit):
                 break
             time.sleep(PAUSE)
     except BaseException:
         flush(pending, done=False)
-        print(f"  сохранено {rows_done:,} до обрыва")
+        print(f" -> сохранено {rows_done:,} до обрыва")
         raise
 
-    flush(None, done=not args.limit)
-    print(f"\nвсего {rows_done:,} препринтов в {out}")
+    # Пробный запуск сохраняет токен: иначе следующий начнёт с начала и повторно
+    # выгрузит уже лежащее на диске.
+    flush(token if limit else None, done=not limit)
+    print(f" -> {rows_done:,}")
+    return rows_done
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description="Метаданные препринтов arXiv")
+    ap.add_argument("--sets", default=",".join(SETS),
+                    help="разделы arXiv через запятую")
+    ap.add_argument("--limit", type=int, help="остановиться после N записей (для пробы)")
+    args = ap.parse_args()
+
+    config.setup_console()
+    cfg = config.load()
+    sets = [s.strip() for s in args.sets.split(",") if s.strip()]
+    print(f"разделы: {', '.join(sets)}")
+    total = sum(harvest(cfg, s, args.limit) for s in sets)
+    print(f"\nвсего {total:,} препринтов в {cfg.raw / 'arxiv'}")
 
 
 if __name__ == "__main__":

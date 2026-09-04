@@ -154,7 +154,9 @@ def fetch_year(client: Client, year: int, limit: int | None = None) -> dict:
         flush(pending, done=False)
         print(f" -> сохранено {rows_done:,} до обрыва")
         raise
-    flush(None, done=not limit)
+    # Пробный запуск сохраняет курсор: иначе следующий начнёт год заново и
+    # повторно выгрузит то, что уже лежит на диске.
+    flush(pending if limit else None, done=not limit)
 
     if limit:                       # пробный запуск, полноту не проверяем
         print(f" -> выгружено {rows_done:,} (проба)")
