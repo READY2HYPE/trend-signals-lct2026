@@ -3,7 +3,7 @@
   "note": "Образец формы. Группы взяты по темам OpenAlex, а не нашей кластеризацией. Числа посчитаны по настоящему корпусу; мотивация, кейс-пример и проверка на прошлом заполняются ядром позже.",
   "index_version": "sample-2026-09-04",
   "slice_id": "ai-2010-2025",
-  "built_at": "2026-09-04T10:41:33+00:00",
+  "built_at": "2026-09-04T16:10:28+00:00",
   "direction": {
     "id": "ai",
     "name": "искусственный интеллект",
@@ -150,6 +150,7 @@
       ],
       "features": {
         "normalized_growth": 16.83,
+        "acceleration": 0.25,
         "organizations": 4301,
         "countries": 125
       },
@@ -307,6 +308,7 @@
       ],
       "features": {
         "normalized_growth": 16.77,
+        "acceleration": 0.79,
         "organizations": 4838,
         "countries": 126
       },
@@ -464,6 +466,7 @@
       ],
       "features": {
         "normalized_growth": 11.3,
+        "acceleration": 0.67,
         "organizations": 3598,
         "countries": 111
       },
@@ -621,6 +624,7 @@
       ],
       "features": {
         "normalized_growth": 9.63,
+        "acceleration": 2.77,
         "organizations": 6924,
         "countries": 152
       },
@@ -778,6 +782,7 @@
       ],
       "features": {
         "normalized_growth": 7.65,
+        "acceleration": 0.68,
         "organizations": 3638,
         "countries": 104
       },
@@ -935,6 +940,7 @@
       ],
       "features": {
         "normalized_growth": 4.07,
+        "acceleration": 0.95,
         "organizations": 7596,
         "countries": 146
       },
@@ -1092,6 +1098,7 @@
       ],
       "features": {
         "normalized_growth": 3.85,
+        "acceleration": 1.13,
         "organizations": 8232,
         "countries": 146
       },
@@ -1249,6 +1256,7 @@
       ],
       "features": {
         "normalized_growth": 3.57,
+        "acceleration": 1.41,
         "organizations": 3544,
         "countries": 109
       },
@@ -1406,6 +1414,7 @@
       ],
       "features": {
         "normalized_growth": 3.22,
+        "acceleration": 0.94,
         "organizations": 3394,
         "countries": 113
       },
@@ -1563,6 +1572,7 @@
       ],
       "features": {
         "normalized_growth": 3.03,
+        "acceleration": 3.63,
         "organizations": 2971,
         "countries": 96
       },
@@ -1720,6 +1730,7 @@
       ],
       "features": {
         "normalized_growth": 3.0,
+        "acceleration": 0.33,
         "organizations": 1745,
         "countries": 95
       },
@@ -1877,6 +1888,7 @@
       ],
       "features": {
         "normalized_growth": 2.81,
+        "acceleration": 1.55,
         "organizations": 7018,
         "countries": 147
       },
@@ -2034,6 +2046,7 @@
       ],
       "features": {
         "normalized_growth": 2.73,
+        "acceleration": 0.69,
         "organizations": 4655,
         "countries": 152
       },
@@ -2191,6 +2204,7 @@
       ],
       "features": {
         "normalized_growth": 2.61,
+        "acceleration": 0.8,
         "organizations": 4058,
         "countries": 125
       },
@@ -2348,6 +2362,7 @@
       ],
       "features": {
         "normalized_growth": 2.59,
+        "acceleration": 1.35,
         "organizations": 8137,
         "countries": 140
       },

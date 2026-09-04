@@ -85,6 +85,15 @@ def build_card(tid: str, rec: dict, corpus: dict[int, int], years: list[int]) ->
     late = sum(s["per_10k"] for s in series[half:])
     growth = late / early
 
+    # Ускорение — меняется ли сама скорость. Ряд делится на три части, сравниваются
+    # два соседних темпа: тема, которая росла ровно, и тема, которая только что
+    # рванула, по одному нормированному росту неразличимы.
+    third = max(1, len(series) // 3)
+    p1 = sum(s["per_10k"] for s in series[:third]) or 0.01
+    p2 = sum(s["per_10k"] for s in series[third:2 * third]) or 0.01
+    p3 = sum(s["per_10k"] for s in series[2 * third:])
+    acceleration = (p3 / p2) / (p2 / p1)
+
     # только по цитируемости: заголовок или издание бывают пустыми и ломают сравнение
     best = sorted(rec["best"], key=lambda b: -b[0])[:6]
     case = best[0]
@@ -108,6 +117,7 @@ def build_card(tid: str, rec: dict, corpus: dict[int, int], years: list[int]) ->
         "series": series,
         "features": {
             "normalized_growth": round(growth, 2),
+            "acceleration": round(acceleration, 2),
             "organizations": len(rec["orgs"]),
             "countries": len(rec["countries"]),
         },
