@@ -47,6 +47,20 @@ PREPRINTS = pa.schema([
 ])
 
 
+def read_preprints(cfg: config.Slice) -> pa.Table:
+    """Читает все разделы как один корпус, без повторов.
+
+    Работа, помеченная сразу в двух разделах, приходит из каждого — и это не
+    ошибка выгрузки, а устройство протокола. Хранение остаётся пораздельным
+    (так возобновляется выгрузка), а повторы снимаются на чтении.
+    """
+    table = pq.read_table(cfg.raw / "arxiv", schema=PREPRINTS)
+    seen: set[str] = set()
+    keep = [n for n, i in enumerate(table["id"].to_pylist())
+            if not (i in seen or seen.add(i))]
+    return table.take(keep) if len(keep) < table.num_rows else table
+
+
 def _text(node, tag: str) -> str | None:
     found = node.find(ARX_NS + tag)
     if found is None or found.text is None:

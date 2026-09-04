@@ -94,3 +94,29 @@ def test_deleted_preprint_skipped():
 
     from src.collect import arxiv
     assert arxiv.parse_record(ElementTree.fromstring(DELETED_RECORD)) is None
+
+
+def test_preprints_deduplicated_across_sets(tmp_path):
+    """Работа, помеченная в двух разделах, приходит из каждого — на чтении повтор снимается."""
+    import dataclasses
+
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+
+    from src.collect import arxiv
+
+    def row(pid):
+        return {"id": pid, "created": "2021-04-27", "updated": None, "title": "t",
+                "abstract": "a", "categories": ["cs.LG", "stat.ML"],
+                "primary_category": "cs.LG", "doi": None, "authors": [], "author_count": 0}
+
+    for name, ids in [("cs", ["1", "2"]), ("stat", ["2", "3"])]:
+        d = tmp_path / "arxiv" / f"set={name}"
+        d.mkdir(parents=True)
+        pq.write_table(pa.Table.from_pylist([row(i) for i in ids], schema=arxiv.PREPRINTS),
+                       d / "part-000.parquet")
+
+    cfg = dataclasses.replace(config.load(), raw=tmp_path)
+    table = arxiv.read_preprints(cfg)
+    assert table.num_rows == 3
+    assert sorted(table["id"].to_pylist()) == ["1", "2", "3"]

@@ -11,7 +11,7 @@ import json
 import pyarrow.compute as pc
 import pyarrow.parquet as pq
 
-from src.collect import config, manifest, schema
+from src.collect import arxiv, config, manifest, schema
 
 
 def main() -> None:
@@ -52,6 +52,23 @@ def main() -> None:
             worst_year, worst_gap = year, gap
     results.append((worst_gap <= 0.02,
                     f"худшее расхождение с агрегатом: {worst_gap:.2%} в {worst_year} (нужно до 2%)"))
+
+    if (cfg.raw / "arxiv").exists():
+        pre = arxiv.read_preprints(cfg)
+        created = pre["created"].to_pylist()
+        no_created = sum(1 for c in created if not c)
+        ours = sum(1 for c in created if c and str(cfg.year_start) <= c[:4] <= str(cfg.year_end))
+        pids = pre["id"].to_pylist()
+        results.append((no_created == 0,
+                        f"препринтов {pre.num_rows:,}, без даты первой версии {no_created:,}"))
+        results.append((len(pids) == len(set(pids)), "повторов среди препринтов нет"))
+        results.append((True, f"препринтов за {cfg.year_start}-{cfg.year_end}: {ours:,}"))
+
+        linked = {a for a in table["arxiv_id"].to_pylist() if a} & set(pids)
+        total_arx = len({a for a in table["arxiv_id"].to_pylist() if a})
+        results.append((True, f"сшивка по arXiv: {len(linked):,} из {total_arx:,}"))
+    else:
+        results.append((False, "препринтов нет: uv run python -m src.collect.arxiv"))
 
     if cfg.manifest.exists():
         problems = manifest.check(cfg)
