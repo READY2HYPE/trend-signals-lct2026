@@ -4,9 +4,14 @@
 на слово. Считается по всему срезу, работы для просмотра берутся из подвыборки.
 
     uv run python scripts/make_catalog.py
+    uv run python scripts/make_catalog.py --page витрина.html
+
+Готовая страница в репозиторий не кладётся: она целиком выводится из шаблона
+`scripts/catalog.html` и данных `data/index/catalog.json`, которые там уже есть.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from collections import Counter, defaultdict
@@ -22,7 +27,21 @@ WORKS_SHOWN = 4000        # столько работ уходит в витри
 TOPICS_SHOWN = 40
 
 
+def build_page(data_path: Path, out: Path) -> None:
+    """Подставляет данные в шаблон страницы."""
+    tpl = (Path(__file__).parent / "catalog.html").read_text(encoding="utf-8")
+    if "__CATALOG__" not in tpl:
+        raise SystemExit("В шаблоне нет метки __CATALOG__.")
+    out.write_text(tpl.replace("__CATALOG__", data_path.read_text(encoding="utf-8")),
+                   encoding="utf-8")
+    print(f"страница -> {out} ({out.stat().st_size / 1024 / 1024:.2f} МБ)")
+
+
 def main() -> None:
+    ap = argparse.ArgumentParser(description="Данные для витрины корпуса")
+    ap.add_argument("--page", type=Path, help="заодно собрать готовую страницу по этому пути")
+    args = ap.parse_args()
+
     config.setup_console()
     cfg = config.load()
 
@@ -117,6 +136,8 @@ def main() -> None:
     path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"{len(works):,} работ, {len(top_topics)} тем -> {path} "
           f"({path.stat().st_size / 1024 / 1024:.1f} МБ)")
+    if args.page:
+        build_page(path, args.page)
 
 
 if __name__ == "__main__":

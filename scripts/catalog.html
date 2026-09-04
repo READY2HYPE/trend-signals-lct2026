@@ -1,0 +1,468 @@
+<title>Корпус ИИ 2010–2025</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#fcfcfb; --panel:#f5f6f3; --ink:#16191c; --ink-2:#4a545c; --ink-3:#79838a;
+  --rule:#e0e3de; --rule-2:#cfd3cd;
+  --s1:#1f6fb2; --s2:#c1682a; --s3:#1e9e7a;
+  --s1-fill:rgba(31,111,178,.13); --s2-fill:rgba(193,104,42,.13);
+  --focus:#1f6fb2;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#14171a; --panel:#1b1f22; --ink:#e9ebe7; --ink-2:#a8b1b4; --ink-3:#7d8688;
+    --rule:#282d31; --rule-2:#3a4046;
+    --s1:#4e96cc; --s2:#c87c3c; --s3:#37a582;
+    --s1-fill:rgba(78,150,204,.16); --s2-fill:rgba(200,124,60,.16);
+    --focus:#4e96cc;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14171a; --panel:#1b1f22; --ink:#e9ebe7; --ink-2:#a8b1b4; --ink-3:#7d8688;
+  --rule:#282d31; --rule-2:#3a4046;
+  --s1:#4e96cc; --s2:#c87c3c; --s3:#37a582;
+  --s1-fill:rgba(78,150,204,.16); --s2-fill:rgba(200,124,60,.16);
+  --focus:#4e96cc;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font:400 15px/1.6 "IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 72px}
+h1,h2,h3{font-family:Spectral,Georgia,"Times New Roman",serif;font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:38px;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:23px;line-height:1.25}
+p{margin:0}
+.lede{color:var(--ink-2);max-width:62ch;margin-top:12px}
+.eyebrow{
+  font:500 11px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+header{border-bottom:1px solid var(--rule);padding-bottom:28px}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid var(--rule)}
+.fact{flex:1 1 150px;padding:14px 20px 0 0}
+.fact b{display:block;font:500 26px/1.15 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.fact span{display:block;color:var(--ink-3);font-size:12.5px;margin-top:3px}
+
+section{margin-top:52px}
+.head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.note{color:var(--ink-2);font-size:14px;max-width:64ch;margin-top:10px}
+
+figure{margin:22px 0 0}
+svg{display:block;width:100%;height:auto}
+#chartYears,#chartAbs{touch-action:pan-y}
+.grid-line{stroke:var(--rule);stroke-width:1}
+.axis-txt{fill:var(--ink-3);font:400 11px/1 "IBM Plex Mono",monospace}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--ink-2)}
+.legend i{display:inline-block;width:22px;height:3px;border-radius:2px;vertical-align:middle;margin-right:8px}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:38px;margin-top:22px}
+
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{
+  text-align:left;font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);padding:0 12px 9px 0;
+  border-bottom:1px solid var(--rule-2);white-space:nowrap;
+}
+td{padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:hover{background:var(--panel)}
+.scroll{overflow-x:auto;margin-top:18px}
+.growth{color:var(--s2);font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tnum{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.spark{width:104px;height:26px;display:block}
+.title-cell{max-width:400px}
+.dim{color:var(--ink-2)}
+
+.bars{display:grid;gap:7px;margin-top:20px}
+.bar{display:grid;grid-template-columns:36px 1fr 62px;align-items:center;gap:12px;font-size:13.5px}
+.bar .track{height:12px;background:var(--panel);border-radius:2px;overflow:hidden}
+.bar .fill{height:100%;background:var(--s1);border-radius:0 2px 2px 0}
+.bar .cc{font-family:"IBM Plex Mono",monospace;color:var(--ink-2)}
+
+.filters{
+  display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-top:20px;
+  padding:16px;background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+}
+.f{display:flex;flex-direction:column;gap:5px}
+.f label{font:500 10.5px/1 "IBM Plex Mono",monospace;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+select,input[type=search],input[type=range]{
+  font:400 15px/1 "IBM Plex Sans",sans-serif;color:var(--ink);
+  background:var(--ground);border:1px solid var(--rule-2);border-radius:3px;padding:8px 9px;
+}
+input[type=search]{min-width:230px}
+select{min-width:150px}
+input[type=range]{padding:0;width:150px;accent-color:var(--s1)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.chk{display:flex;align-items:center;gap:8px;font-size:14px;padding-bottom:8px}
+.chk input{accent-color:var(--s1);width:18px;height:18px}
+.count{color:var(--ink-3);font-size:13px;margin-top:14px;font-family:"IBM Plex Mono",monospace}
+
+.tag{
+  display:inline-block;font:500 11px/1 "IBM Plex Mono",monospace;padding:3px 7px;border-radius:2px;
+  border:1px solid var(--rule-2);color:var(--ink-2);white-space:nowrap;
+}
+.tag.pre{color:var(--s2);border-color:var(--s2)}
+a{color:var(--s1);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:currentColor}
+.pager{display:flex;gap:8px;align-items:center;margin-top:20px;flex-wrap:wrap}
+button{
+  font:500 14px/1 "IBM Plex Sans",sans-serif;color:var(--ink);background:var(--ground);
+  border:1px solid var(--rule-2);border-radius:3px;padding:10px 16px;cursor:pointer;
+}
+button:hover:not(:disabled){background:var(--panel)}
+button:disabled{opacity:.4;cursor:default}
+.no{color:var(--ink-3);padding:26px 0}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--rule);color:var(--ink-3);font-size:13px}
+
+/* --- узкий экран: телефон --- */
+@media (max-width:720px){
+  .wrap{padding:24px 16px 48px}
+  h1{font-size:27px}
+  h2{font-size:20px}
+  section{margin-top:38px}
+  .two{gap:34px}
+  .fact{flex:1 1 calc(50% - 12px);padding:12px 12px 0 0}
+  .fact b{font-size:22px}
+
+  /* каталог: карточки вместо таблицы */
+  #works thead{display:none}
+  #works tbody tr{display:block;padding:14px 0;border-bottom:1px solid var(--rule)}
+  #works tbody tr:hover{background:none}
+  #works td{display:block;border:none;padding:2px 0;max-width:none;text-align:left}
+  #works td[data-label]::before{content:attr(data-label) ": ";color:var(--ink-3)}
+  #works td.title-cell{font-size:15.5px;padding-bottom:6px}
+  .scroll{overflow-x:visible}
+
+  /* фильтры на всю ширину */
+  .filters{flex-direction:column;align-items:stretch;gap:14px}
+  .f{width:100%}
+  input[type=search],select,input[type=range]{width:100%;min-width:0}
+  .chk{padding-bottom:0}
+  .pager button{flex:1;min-height:44px}
+}
+@media (max-width:560px){
+  #topics th:nth-child(2),#topics td:nth-child(2){display:none}
+  .spark{width:72px}
+  .bar{grid-template-columns:30px 1fr 54px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Trend Signals · срез <span id="sid" class="num"></span></p>
+  <h1 style="margin-top:12px">Корпус научных работ<br>по искусственному интеллекту</h1>
+  <p class="lede">Замороженная выгрузка за 2010–2025. Собрана, чтобы искать в ней
+  зарождающиеся тренды; здесь её можно просто посмотреть — сколько чего собралось,
+  как распределено по годам и странам, и что за работы внутри. Графики построены
+  по всему корпусу, каталог внизу показывает малую выборку из него.</p>
+  <div class="facts" id="facts"></div>
+</header>
+
+<section>
+  <div class="head"><h2>Сколько работ выходило каждый год</h2></div>
+  <p class="note">Два источника считаются отдельно. У научных работ берётся год публикации,
+  у препринтов — год первой версии, потому что нас интересует момент, когда работа
+  впервые появилась. Наведите курсор или коснитесь графика, чтобы увидеть числа.</p>
+  <figure><svg id="chartYears" role="img"
+    aria-label="Число работ и препринтов по годам с 2010 по 2025"></svg></figure>
+  <div class="legend">
+    <span><i style="background:var(--s1)"></i>научные работы, OpenAlex</span>
+    <span><i style="background:var(--s2)"></i>препринты, arXiv</span>
+  </div>
+</section>
+
+<div class="two">
+  <section style="margin-top:0">
+    <h2>Доля работ с аннотацией</h2>
+    <p class="note">Аннотация — краткое содержание статьи. Это единственный текст,
+    который у нас есть: по нему считается смысловая близость работ. Её полнота растёт
+    от года к году, и это приходится учитывать при счёте.</p>
+    <figure><svg id="chartAbs" role="img"
+      aria-label="Доля работ с аннотацией по годам"></svg></figure>
+  </section>
+  <section style="margin-top:0">
+    <h2>Откуда работы</h2>
+    <p class="note">Страны организаций, к которым приписаны авторы. Одна работа может
+    попасть в несколько стран сразу.</p>
+    <div class="bars" id="countries"></div>
+  </section>
+</div>
+
+<section>
+  <div class="head"><h2>Темы, растущие быстрее прочих</h2></div>
+  <p class="note">Рубрики самого OpenAlex, не наша группировка: настоящие тренды ищутся
+  иначе, у зарождающейся темы названия ещё нет. Здесь они как проверка, что данные живые —
+  и порядок получается осмысленный. Рост — во сколько раз вторые восемь лет
+  обогнали первые.</p>
+  <div class="scroll">
+    <table id="topics">
+      <thead><tr><th>Тема</th><th class="tnum">Работ</th><th>Рост</th><th>По годам</th></tr></thead>
+      <tbody id="topicRows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="head">
+    <h2>Каталог работ</h2>
+    <p class="eyebrow">выборка · <span id="fracv" class="num"></span> корпуса</p>
+  </div>
+  <p class="note"><b>Здесь показана малая часть корпуса — четыре тысячи работ,
+  примерно одна из четырёхсот.</b> Полтора миллиона записей в браузер не поместятся,
+  да и незачем: этой выборки хватает, чтобы увидеть, что за работы внутри.
+  Отобраны равномерно по годам, поэтому пропорции те же, что в корпусе.
+  Ссылки открывают первоисточник.</p>
+
+  <div class="filters">
+    <div class="f"><label for="q">Поиск по заголовку</label>
+      <input type="search" id="q" placeholder="например, transformer"></div>
+    <div class="f"><label for="kind">Тип</label>
+      <select id="kind"><option value="">любой</option><option>статья</option><option>препринт</option></select></div>
+    <div class="f"><label for="topic">Тема</label><select id="topic"></select></div>
+    <div class="f"><label for="country">Страна</label><select id="country"></select></div>
+    <div class="f"><label for="yr">Год не раньше <span id="yrv" class="num"></span></label>
+      <input type="range" id="yr"></div>
+    <label class="chk"><input type="checkbox" id="abs"> только с аннотацией</label>
+  </div>
+
+  <p class="count" id="count"></p>
+  <div class="scroll">
+    <table id="works">
+      <thead><tr>
+        <th>Заголовок</th><th>Год</th><th>Тип</th><th>Тема</th>
+        <th>Организация</th><th class="tnum">Ссылок</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div class="pager">
+    <button id="prev">Назад</button><button id="next">Дальше</button>
+    <span class="count" id="page" style="margin:0"></span>
+  </div>
+</section>
+
+<footer>
+  Данные: <a href="https://openalex.org">OpenAlex</a> и <a href="https://arxiv.org">arXiv</a>,
+  открытые лицензии. Страница собрана по замороженному срезу — числа не меняются.
+  Команда READY2HYPE, хакатон «Лидеры цифровой трансформации» 2026.
+</footer>
+</div>
+
+<script type="application/json" id="data">__CATALOG__</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const nf = new Intl.NumberFormat('ru-RU');
+const SVG = 'http://www.w3.org/2000/svg';
+const el = (n, a = {}) => { const e = document.createElementNS(SVG, n);
+  for (const k in a) e.setAttribute(k, a[k]); return e; };
+
+document.getElementById('sid').textContent = D.slice_id;
+document.getElementById('facts').innerHTML = [
+  [D.totals.works, 'научных работ'],
+  [D.totals.preprints, 'препринтов'],
+  [D.totals.with_abstract, 'с аннотацией'],
+  [D.totals.countries, 'стран'],
+  [D.totals.topics, 'рубрик'],
+].map(([n, l]) => `<div class="fact"><b>${nf.format(n)}</b><span>${l}</span></div>`).join('');
+
+/* Ширина viewBox равна ширине контейнера в пикселях: тогда подписи осей рисуются
+   своим кеглем на любом экране, а не сжимаются вместе с картинкой. */
+function responsive(svg, draw) {
+  let timer;
+  const run = () => {
+    const W = Math.max(280, Math.round(svg.clientWidth || svg.parentNode.clientWidth));
+    svg.replaceChildren();
+    draw(W);
+  };
+  run();
+  addEventListener('resize', () => { clearTimeout(timer); timer = setTimeout(run, 150); });
+}
+
+/* ---- график по годам ---- */
+(function () {
+  const svg = document.getElementById('chartYears');
+  let st = null;
+
+  responsive(svg, W => {
+    const narrow = W < 520;
+    const H = Math.max(250, Math.round(W * 0.36));
+    const L = narrow ? 42 : 58, R = 14, T = 20, B = 32;
+    const iw = W - L - R, ih = H - T - B;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+    const max = Math.max(...D.by_year, ...D.preprints_by_year) * 1.06;
+    const x = i => L + (iw * i) / (D.years.length - 1);
+    const y = v => T + ih - (ih * v) / max;
+
+    for (let i = 0; i <= 4; i++) {
+      const v = (max / 4) * i, yy = y(v);
+      svg.appendChild(el('line', { x1: L, x2: W - R, y1: yy, y2: yy, class: 'grid-line' }));
+      const t = el('text', { x: L - 8, y: yy + 4, class: 'axis-txt', 'text-anchor': 'end' });
+      t.textContent = Math.round(v / 1000) + 'к'; svg.appendChild(t);
+    }
+    const every = narrow ? 5 : 3;
+    D.years.forEach((yr, i) => {
+      if (i % every && i !== D.years.length - 1) return;
+      const t = el('text', { x: x(i), y: H - 9, class: 'axis-txt', 'text-anchor': 'middle' });
+      t.textContent = yr; svg.appendChild(t);
+    });
+
+    const draw = (vals, color, fill) => {
+      const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(' ');
+      svg.appendChild(el('polygon', { points: `${L},${y(0)} ${pts} ${x(vals.length - 1)},${y(0)}`,
+        fill: fill, stroke: 'none' }));
+      svg.appendChild(el('polyline', { points: pts, fill: 'none', stroke: color,
+        'stroke-width': 2, 'stroke-linejoin': 'round' }));
+      vals.forEach((v, i) => svg.appendChild(el('circle', { cx: x(i), cy: y(v),
+        r: narrow ? 2.6 : 3.5, fill: color, stroke: 'var(--ground)', 'stroke-width': 2 })));
+    };
+    draw(D.by_year, 'var(--s1)', 'var(--s1-fill)');
+    draw(D.preprints_by_year, 'var(--s2)', 'var(--s2-fill)');
+
+    const hl = el('line', { y1: T, y2: T + ih, stroke: 'var(--rule-2)', 'stroke-width': 1, opacity: 0 });
+    svg.appendChild(hl);
+    const box = el('text', { class: 'axis-txt', opacity: 0, 'text-anchor': 'middle',
+      fill: 'var(--ink)' });
+    svg.appendChild(box);
+    st = { hl, box, x, W, L, R, T, iw };
+  });
+
+  const show = clientX => {
+    if (!st) return;
+    const r = svg.getBoundingClientRect();
+    const px = ((clientX - r.left) / r.width) * st.W;
+    let i = Math.round(((px - st.L) / st.iw) * (D.years.length - 1));
+    i = Math.max(0, Math.min(D.years.length - 1, i));
+    st.hl.setAttribute('x1', st.x(i)); st.hl.setAttribute('x2', st.x(i));
+    st.hl.setAttribute('opacity', 1);
+    const pad = Math.min(st.W / 2, 130);
+    st.box.setAttribute('x', Math.min(Math.max(st.x(i), st.L + pad * .5), st.W - st.R - pad * .5));
+    st.box.setAttribute('y', st.T - 6); st.box.setAttribute('opacity', 1);
+    st.box.textContent = `${D.years[i]}: ${nf.format(D.by_year[i])} · ${nf.format(D.preprints_by_year[i])}`;
+  };
+  const hide = () => { if (st) { st.hl.setAttribute('opacity', 0); st.box.setAttribute('opacity', 0); } };
+  svg.addEventListener('pointermove', ev => { if (ev.pointerType !== 'touch') show(ev.clientX); });
+  svg.addEventListener('pointerdown', ev => { if (ev.pointerType === 'touch') show(ev.clientX); });
+  svg.addEventListener('pointerleave', hide);
+})();
+
+/* ---- доля аннотаций ---- */
+(function () {
+  const svg = document.getElementById('chartAbs');
+  responsive(svg, W => {
+    const H = Math.max(170, Math.round(W * 0.45));
+    const L = 38, R = 12, T = 14, B = 28;
+    const iw = W - L - R, ih = H - T - B;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const share = D.by_year.map((v, i) => (D.abstract_by_year[i] / v) * 100);
+    const x = i => L + (iw * i) / (share.length - 1);
+    const y = v => T + ih - (ih * (v - 40)) / 60;
+    [50, 70, 90].forEach(v => {
+      svg.appendChild(el('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), class: 'grid-line' }));
+      const t = el('text', { x: L - 8, y: y(v) + 4, class: 'axis-txt', 'text-anchor': 'end' });
+      t.textContent = v + '%'; svg.appendChild(t);
+    });
+    [0, share.length - 1].forEach(i => {
+      const t = el('text', { x: x(i), y: H - 8, class: 'axis-txt',
+        'text-anchor': i ? 'end' : 'start' });
+      t.textContent = D.years[i]; svg.appendChild(t);
+    });
+    svg.appendChild(el('polyline', { points: share.map((v, i) => `${x(i)},${y(v)}`).join(' '),
+      fill: 'none', stroke: 'var(--s3)', 'stroke-width': 2, 'stroke-linejoin': 'round' }));
+    share.forEach((v, i) => svg.appendChild(el('circle', { cx: x(i), cy: y(v), r: 2.8,
+      fill: 'var(--s3)', stroke: 'var(--ground)', 'stroke-width': 2 })));
+    const last = share.length - 1;
+    const t = el('text', { x: x(last) - 4, y: y(share[last]) - 11, class: 'axis-txt',
+      'text-anchor': 'end', fill: 'var(--s3)' });
+    t.textContent = share[last].toFixed(0) + '%'; svg.appendChild(t);
+  });
+})();
+
+/* ---- страны ---- */
+(function () {
+  const rows = Object.entries(D.by_country).slice(0, 12);
+  const max = rows[0][1];
+  document.getElementById('countries').innerHTML = rows.map(([cc, n]) =>
+    `<div class="bar"><span class="cc">${cc}</span>
+     <span class="track"><span class="fill" style="width:${(n / max) * 100}%"></span></span>
+     <span class="tnum">${nf.format(n)}</span></div>`).join('');
+})();
+
+/* ---- темы ---- */
+(function () {
+  document.getElementById('topicRows').innerHTML = D.topics.slice(0, 14).map(t => {
+    const m = Math.max(...t.series) || 1;
+    const pts = t.series.map((v, i) =>
+      `${(i / (t.series.length - 1)) * 100},${24 - (v / m) * 22}`).join(' ');
+    return `<tr><td>${t.name}</td><td class="tnum">${nf.format(t.works)}</td>
+      <td class="growth">×${t.growth.toFixed(1)}</td>
+      <td><svg class="spark" viewBox="0 0 100 26" preserveAspectRatio="none" aria-hidden="true">
+        <polyline points="${pts}" fill="none" stroke="var(--s1)" stroke-width="1.6"
+          vector-effect="non-scaling-stroke"/></svg></td></tr>`;
+  }).join('');
+})();
+
+/* ---- каталог ---- */
+(function () {
+  const works = D.works;
+  const PER = 40;
+  let page = 0;
+  const q = document.getElementById('q'), kind = document.getElementById('kind'),
+    topic = document.getElementById('topic'), country = document.getElementById('country'),
+    yr = document.getElementById('yr'), yrv = document.getElementById('yrv'),
+    abs = document.getElementById('abs');
+
+  const uniq = key => [...new Set(works.map(w => w[key]).filter(Boolean))].sort();
+  topic.innerHTML = '<option value="">любая</option>' +
+    uniq('tp').map(t => `<option>${t}</option>`).join('');
+  country.innerHTML = '<option value="">любая</option>' +
+    uniq('cn').map(c => `<option>${c}</option>`).join('');
+  document.getElementById('fracv').textContent =
+    (works.length / D.totals.works * 100).toFixed(2).replace('.', ',') + '%';
+  yr.min = D.years[0]; yr.max = D.years[D.years.length - 1]; yr.value = D.years[0];
+  yrv.textContent = yr.value;
+
+  function match() {
+    const s = q.value.trim().toLowerCase();
+    return works.filter(w =>
+      (!s || w.t.toLowerCase().includes(s)) &&
+      (!kind.value || w.k === kind.value) &&
+      (!topic.value || w.tp === topic.value) &&
+      (!country.value || w.cn === country.value) &&
+      w.y >= +yr.value && (!abs.checked || w.a));
+  }
+  function render() {
+    const found = match();
+    const pages = Math.max(1, Math.ceil(found.length / PER));
+    page = Math.min(page, pages - 1);
+    document.getElementById('count').textContent =
+      `найдено ${nf.format(found.length)} из ${nf.format(works.length)} показанных · ` +
+      `весь корпус — ${nf.format(D.totals.works)} работ`;
+    document.getElementById('page').textContent = `страница ${page + 1} из ${pages}`;
+    document.getElementById('prev').disabled = page === 0;
+    document.getElementById('next').disabled = page >= pages - 1;
+    const slice = found.slice(page * PER, page * PER + PER);
+    document.getElementById('rows').innerHTML = slice.length ? slice.map(w => `
+      <tr><td class="title-cell"><a href="${w.u}" target="_blank" rel="noopener">${w.t}</a></td>
+      <td class="num" data-label="Год">${w.y}</td>
+      <td data-label="Тип"><span class="tag${w.k === 'препринт' ? ' pre' : ''}">${w.k}</span></td>
+      <td class="dim" style="max-width:200px" data-label="Тема">${w.tp}</td>
+      <td class="dim" style="max-width:200px" data-label="Организация">${w.o || '—'}</td>
+      <td class="tnum" data-label="Ссылок">${nf.format(w.c)}</td></tr>`).join('')
+      : `<tr><td colspan="6" class="no">Ничего не нашлось. Попробуйте снять часть условий.</td></tr>`;
+  }
+  [q, kind, topic, country, abs].forEach(c =>
+    c.addEventListener('input', () => { page = 0; render(); }));
+  yr.addEventListener('input', () => { yrv.textContent = yr.value; page = 0; render(); });
+  document.getElementById('prev').addEventListener('click', () => {
+    page--; render(); document.getElementById('count').scrollIntoView({ block: 'nearest' }); });
+  document.getElementById('next').addEventListener('click', () => {
+    page++; render(); document.getElementById('count').scrollIntoView({ block: 'nearest' }); });
+  render();
+})();
+</script>
