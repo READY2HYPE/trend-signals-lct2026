@@ -28,6 +28,7 @@ class Slice:
     sample: Path
     manifest: Path
     mailto: str
+    api_key: str
 
     @property
     def years(self) -> range:
@@ -77,4 +78,5 @@ def load(path: Path | str = ROOT / "config" / "slice.yaml") -> Slice:
         sample=ROOT / p["sample"],
         manifest=ROOT / p["manifest"],
         mailto=mailto,
+        api_key=os.environ.get("OPENALEX_API_KEY", "").strip(),
     )

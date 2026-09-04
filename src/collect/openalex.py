@@ -36,10 +36,12 @@ class Client:
     def __init__(self, cfg: config.Slice) -> None:
         self.cfg = cfg
         self.remaining: int | None = None      # запросов до конца суток, из заголовка
-        self.http = httpx.Client(
-            timeout=90.0,
-            headers={"User-Agent": f"trend-signals/0.1 (mailto:{cfg.mailto})"},
-        )
+        headers = {"User-Agent": f"trend-signals/0.1 (mailto:{cfg.mailto})"}
+        if cfg.api_key:
+            # Ключ уходит заголовком, а не в адресе запроса: иначе он попадёт
+            # в журналы и в сохранённые курсоры.
+            headers["Authorization"] = f"Bearer {cfg.api_key}"
+        self.http = httpx.Client(timeout=90.0, headers=headers)
 
     def _note_limits(self, r: httpx.Response) -> None:
         left = r.headers.get("x-ratelimit-remaining")
