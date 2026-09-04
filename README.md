@@ -60,6 +60,7 @@ uv run python -m src.collect.sample         подвыборка для разр
 uv run python -m src.collect.manifest       манифест; --check сверяет свою выгрузку
 uv run python -m src.collect.check          критерии приёмки этапа
 uv run python scripts/make_catalog.py       данные для витрины корпуса
+uv run python -m src.collect.peek           посмотреть выгрузку глазами
 ```
 
 Бэкенду и фронтенду корпус не нужен: им нужен индекс, он лежит в репозитории.
