@@ -59,7 +59,8 @@ scripts/  разовые проверки
 ```
 uv run python scripts/probe_slice.py        замер объёма и полноты полей
 uv run python -m src.collect.aggregates     ряды по годам для нормировки
-uv run python -m src.collect.openalex       выгрузка, продолжается после обрыва
+uv run python -m src.collect.openalex       научные работы, продолжается после обрыва
+uv run python -m src.collect.arxiv          препринты
 uv run python -m src.collect.sample         подвыборка для разработки
 uv run python -m src.collect.manifest       манифест; --check сверяет свою выгрузку
 uv run python -m src.collect.check          критерии приёмки этапа

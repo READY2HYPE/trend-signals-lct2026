@@ -178,18 +178,23 @@ def main() -> None:
     years = [args.year] if args.year else list(cfg.years)
     print(f"срез {cfg.slice_id}: подобласти {cfg.subfield_ids}, годы {years[0]}-{years[-1]}")
 
-    total, bad, stopped = 0, [], None
+    bad, stopped = [], None
     for year in years:
         try:
             res = fetch_year(client, year, args.limit)
         except BudgetExhausted as e:
             stopped = f"{year}: {e}"
             break
-        total += res.get("rows", 0)
         if res.get("gap", 0) > 0.02:
             bad.append(year)
 
-    print(f"\nвсего {total:,} записей в {cfg.raw / 'openalex'}")
+    # Считаем по состоянию на диске, а не по пройденным годам: иначе прерванный
+    # год не попадает в итог и цифра расходится с тем, что реально лежит.
+    total = sum(json.loads(f.read_text())["rows"]
+                for f in sorted((cfg.raw / "openalex" / "_state").glob("*.json")))
+    closed = sum(1 for f in (cfg.raw / "openalex" / "_state").glob("*.json")
+                 if json.loads(f.read_text())["done"])
+    print(f"\nвсего {total:,} записей, лет закрыто {closed} из {len(list(cfg.years))}")
     if client.remaining is not None:
         print(f"запросов до конца суток UTC осталось: {client.remaining}")
     if stopped:

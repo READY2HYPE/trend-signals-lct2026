@@ -55,3 +55,42 @@ def test_sample_matches_schema_if_present():
         pytest.skip("подвыборка ещё не собрана")
     import pyarrow.parquet as pq
     assert pq.read_schema(path).equals(schema.WORKS)
+
+
+ARXIV_RECORD = """<record xmlns="http://www.openarchives.org/OAI/2.0/">
+  <header><identifier>oai:arXiv.org:2104.14399</identifier></header>
+  <metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/">
+    <id>2104.14399</id><created>2021-04-27</created><updated>2022-01-10</updated>
+    <authors><author><keyname>Иванов</keyname><forenames>Пётр</forenames></author>
+             <author><keyname>Smith</keyname><forenames>Jane</forenames></author></authors>
+    <title>A study on
+       weak signals</title>
+    <categories>cs.AI cs.LG</categories>
+    <abstract>Короткая аннотация.</abstract>
+  </arXiv></metadata></record>"""
+
+DELETED_RECORD = """<record xmlns="http://www.openarchives.org/OAI/2.0/">
+  <header status="deleted"><identifier>oai:arXiv.org:0704.0001</identifier></header>
+</record>"""
+
+
+def test_preprint_parsed_with_first_version_date():
+    from xml.etree import ElementTree
+
+    from src.collect import arxiv
+    row = arxiv.parse_record(ElementTree.fromstring(ARXIV_RECORD))
+    assert row["id"] == "2104.14399"
+    assert row["created"] == "2021-04-27"      # первая версия, не последняя правка
+    assert row["updated"] == "2022-01-10"
+    assert row["categories"] == ["cs.AI", "cs.LG"]
+    assert row["primary_category"] == "cs.AI"
+    assert row["authors"] == ["Пётр Иванов", "Jane Smith"]
+    assert row["title"] == "A study on weak signals"    # перенос строки схлопнут
+    assert row["doi"] is None
+
+
+def test_deleted_preprint_skipped():
+    from xml.etree import ElementTree
+
+    from src.collect import arxiv
+    assert arxiv.parse_record(ElementTree.fromstring(DELETED_RECORD)) is None
