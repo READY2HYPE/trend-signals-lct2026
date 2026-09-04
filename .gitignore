@@ -5,6 +5,7 @@ data/*
 !data/aggregates/
 !data/manifest.json
 !data/index/
+!data/ground-truth/
 *.jsonl
 *.csv.gz
 *.db
